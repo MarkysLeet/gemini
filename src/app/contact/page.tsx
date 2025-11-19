@@ -1,8 +1,34 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function ContactPage() {
+  const [result, setResult] = useState("");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Отправка...");
+    const formData = new FormData(event.currentTarget);
+
+    formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // Замените на ваш ключ от web3forms
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Форма успешно отправлена!");
+      (event.target as HTMLFormElement).reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-16">
       <motion.h1
@@ -31,7 +57,8 @@ export default function ContactPage() {
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <input type="hidden" name="from_name" value="Grozan Studio Site" />
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Имя</label>
               <input type="text" id="name" name="name" required className="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-white" />
@@ -47,6 +74,7 @@ export default function ContactPage() {
             <button type="submit" className="w-full bg-white text-black font-bold py-3 px-6 rounded-md hover:bg-gray-200 transition-colors">
               Отправить
             </button>
+            {result && <p className="text-center mt-4">{result}</p>}
           </form>
         </ScrollReveal>
       </div>

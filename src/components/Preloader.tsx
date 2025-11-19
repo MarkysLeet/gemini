@@ -1,26 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Preloader = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 3000); // Show for 3 seconds
-    return () => clearTimeout(timer);
-  }, []);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const text = "Grozan Studio";
   const containerVariants = {
     hidden: { opacity: 1 },
     visible: {
       opacity: 0,
-      transition: {
-        delay: 2.5,
-        duration: 0.5,
-        when: "afterChildren",
-      },
+      transition: { delay: 2.5, duration: 0.5, when: "afterChildren" },
     },
   };
 
@@ -36,7 +27,9 @@ const Preloader = () => {
     }),
   };
 
-  if (isLoaded) return null;
+  if (isCompleted) {
+    return null;
+  }
 
   return (
     <motion.div
@@ -44,7 +37,7 @@ const Preloader = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      onAnimationComplete={() => setIsLoaded(true)}
+      onAnimationComplete={() => setIsCompleted(true)}
     >
       <motion.h1 className="text-white text-4xl md:text-6xl font-bold" aria-label={text}>
         {text.split("").map((char, i) => (

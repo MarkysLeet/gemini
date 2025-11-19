@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import CustomCursor from "@/components/CustomCursor";
-import PageTransition from "@/components/PageTransition";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,9 +24,7 @@ export default function RootLayout({
         <CustomCursor />
         <Preloader />
         <Header />
-        <main className="pt-24 pb-24">
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <main className="pt-24 pb-24">{children}</main>
         <Footer />
       </body>
     </html>
