@@ -1,5 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -22,6 +24,23 @@ export default function Home() {
           Создаем не просто сайты, а впечатления.
         </motion.p>
       </div>
+
+      <ScrollReveal>
+        <div className="py-24 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            Дизайн, который рассказывает вашу историю.
+          </h2>
+          <p className="max-w-3xl mx-auto text-lg text-gray-400 mb-12">
+            Мы — креативная студия, которая верит в силу продуманного дизайна. Наша цель — создавать не просто красивые сайты, а цифровые продукты, которые решают задачи бизнеса, вызывают эмоции и запоминаются. Мы уделяем внимание каждой детали, чтобы ваш бренд говорил с аудиторией на одном языке.
+          </p>
+          <Link
+            href="/projects"
+            className="inline-block bg-white text-black font-bold py-4 px-8 rounded-md hover:bg-gray-200 transition-colors text-lg"
+          >
+            Наши проекты
+          </Link>
+        </div>
+      </ScrollReveal>
     </div>
   );
 }
