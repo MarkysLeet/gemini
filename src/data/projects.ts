@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: "Кафе" | "Рестораны" | "Салоны";
+  category: "Комплексы" | "Кафе-рестораны";
   coverImage: string;
   description: string;
   inspiration: string;
@@ -12,45 +12,31 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "bean-booster-cafe",
-    title: "BeanBooster",
-    category: "Кафе",
-    coverImage: "https://placehold.co/600x400/000000/FFFFFF?text=BeanBooster",
-    description: "Стильный и современный сайт для сети кофеен.",
-    inspiration: "Вдохновением послужила атмосфера современных городских кофеен — минимализм, натуральные материалы и акцент на качестве.",
-    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=BeanBooster+Logo",
+    id: "aura-memoria",
+    title: "Aura Memoria",
+    category: "Комплексы",
+    coverImage: "https://i.imgur.com/Cb1FLvT.png",
+    description: "Комплексная цифровая экосистема для инновационного стартапа, объединяющего ветеринарную клинику и мемориальный парк.",
+    inspiration: "Проект выполнен в мягких пастельных тонах, передающих спокойствие и заботу. Главной целью было создать интерфейс, который поддерживает пользователя на каждом этапе взаимодействия.",
+    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Aura+Memoria",
     images: [
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Screenshot+1",
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Screenshot+2",
+        "https://i.imgur.com/EpPThsp.png",
+        "https://i.imgur.com/A9SHmA8.png",
+        "https://i.imgur.com/BejiNN9.png",
+        "https://i.imgur.com/wRfKEzI.png",
+        "https://i.imgur.com/jlqRzCU.png",
     ],
-    fullDescription: "Для BeanBooster мы разработали сайт, который отражает их философию: лучший кофе и уютная атмосфера. Мы создали удобное меню, галерею интерьеров и систему онлайн-заказов, интегрированную с их внутренней системой."
+    fullDescription: "Aura Memoria — это больше, чем просто сайт. Это полноценная платформа, включающая в себя систему авторизации, личный кабинет пользователя с историей посещений и управлением записями, а также мощную административную панель для управления клиникой. Мы реализовали плавную смену светлой и темной тем, чтобы интерфейс был комфортен в любое время суток. Особое внимание уделено странице ветеринарной клиники с возможностью онлайн-записи к врачам."
   },
   {
-    id: "elegance-salon",
-    title: "Elegance",
-    category: "Салоны",
-    coverImage: "https://placehold.co/600x400/000000/FFFFFF?text=Elegance",
-    description: "Изящный сайт для премиального салона красоты.",
-    inspiration: "Мы черпали вдохновение в эстетике люксовых брендов и минималистичном дизайне, чтобы подчеркнуть эксклюзивность услуг салона.",
-    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Elegance+Logo",
-    images: [
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Homepage",
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Services",
-    ],
-    fullDescription: "Сайт для салона Elegance — это сочетание стиля и функциональности. Мы реализовали удобную онлайн-запись, подробные страницы услуг с ценами и портфолио мастеров, что позволило увеличить количество онлайн-бронирований на 40%."
-  },
-  {
-    id: "gourmet-place-restaurant",
-    title: "Gourmet Place",
-    category: "Рестораны",
-    coverImage: "https://placehold.co/600x400/000000/FFFFFF?text=Gourmet+Place",
-    description: "Аппетитный сайт для ресторана высокой кухни.",
-    inspiration: "Дизайн сайта вдохновлен самим искусством кулинарии: мы использовали 'вкусные' цвета, элегантную типографику и качественные фотографии блюд.",
-    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Gourmet+Place+Logo",
-    images: [
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Menu",
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Gallery",
-    ],
-    fullDescription: "Основной задачей было передать атмосферу ресторана Gourmet Place. Мы разработали интерактивное меню, фотогалерею, которая погружает в атмосферу заведения, и простую форму для бронирования столиков."
+    id: "black-island",
+    title: "Black Island",
+    category: "Кафе-рестораны",
+    coverImage: "https://placehold.co/600x400/1a1a1a/FFFFFF?text=Black+Island",
+    description: "Концептуальный проект (в разработке).",
+    inspiration: "Скоро здесь появится описание нового проекта.",
+    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Black+Island",
+    images: [],
+    fullDescription: "Информация о проекте будет добавлена в ближайшее время."
   }
 ];
