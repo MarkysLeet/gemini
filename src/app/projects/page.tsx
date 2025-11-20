@@ -37,7 +37,7 @@ export default function ProjectsPage() {
           <button
             key={cat.key}
             onClick={() => setSelectedCategory(cat.key)}
-            className={`px-4 py-2 rounded-md transition-all active:scale-95 cursor-pointer ${
+            className={`px-4 py-2 rounded-md transition-all active:scale-95 ${
               selectedCategory === cat.key
                 ? "bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)]"
                 : "bg-gray-800 hover:bg-gray-700 text-white"

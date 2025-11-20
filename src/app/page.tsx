@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLoading } from "@/context/LoadingContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -19,7 +20,20 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="min-h-screen flex flex-col justify-center items-center text-center relative">
+      <div className="min-h-screen flex flex-col justify-center items-center text-center relative pb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isLoading ? {} : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="relative w-24 h-24 md:w-32 md:h-32 mb-6"
+        >
+          <Image
+            src="https://i.imgur.com/2PponBY.png"
+            alt="Grozan Studio Logo"
+            fill
+            className="object-contain"
+          />
+        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={isLoading ? {} : { opacity: 1, y: 0 }}
