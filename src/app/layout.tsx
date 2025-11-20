@@ -43,7 +43,7 @@ export default function RootLayout({
           <CustomCursor />
           <Preloader />
           <Header />
-          <main className="pt-24 pb-24 flex-grow">{children}</main>
+          <main className="pt-20 pb-24 flex-grow">{children}</main>
           <Footer />
           <BackToTop />
         </Providers>
