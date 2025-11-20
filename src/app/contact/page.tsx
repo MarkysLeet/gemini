@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
+import { Mail, Phone, Instagram, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
   const { t } = useLanguage();
@@ -31,6 +32,28 @@ export default function ContactPage() {
     }
   };
 
+  const contactBlocks = [
+    {
+      icon: <Mail className="w-6 h-6" />,
+      label: "Email",
+      value: "grozan.studio@gmail.com",
+      href: "mailto:grozan.studio@gmail.com",
+    },
+    {
+      icon: <Phone className="w-6 h-6" />,
+      label: "WhatsApp / Tel",
+      value: "+90 541 846 25 50",
+      href: "tel:+905418462550",
+    },
+    {
+      icon: <Instagram className="w-6 h-6" />,
+      label: "Instagram",
+      value: "@grozan.studio",
+      href: "https://www.instagram.com/grozan.studio/",
+      external: true,
+    },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-16">
       <motion.h1
@@ -42,44 +65,91 @@ export default function ContactPage() {
         {t.contact.title}
       </motion.h1>
       <div className="grid md:grid-cols-2 gap-16 items-start">
+        {/* Contact Info Blocks */}
         <ScrollReveal>
-          <div>
-            <h2 className="text-3xl font-bold mb-6">{t.contact.title}</h2>
-            <div className="space-y-4 text-lg">
-              <p>
-                <strong>{t.contact.email}:</strong> <a href="mailto:grozantwink@gmail.com" className="hover:underline">grozantwink@gmail.com</a>
-              </p>
-              <p>
-                <strong>WhatsApp / Tel:</strong> <a href="tel:+905418462550" className="hover:underline">+90 541 846 25 50</a>
-              </p>
-              <p className="pt-4">
-               {/* Using a generic translated message or falling back to english if not in dict */}
-               {/* Since I didn't add a specific key for "Ready to discuss...", I'll leave it static or generic for now, or add it. */}
-               {/* Actually, let's just leave the contact info clear. */}
-              </p>
-            </div>
+          <div className="space-y-6">
+            {contactBlocks.map((block, index) => (
+              <a
+                key={index}
+                href={block.href}
+                target={block.external ? "_blank" : undefined}
+                rel={block.external ? "noopener noreferrer" : undefined}
+                className="block group"
+              >
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex items-center justify-between transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/20 group-hover:translate-x-1">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-white/10 rounded-full text-white group-hover:bg-white group-hover:text-black transition-colors">
+                      {block.icon}
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-400 font-medium">{block.label}</p>
+                      <p className="text-lg font-semibold text-white group-hover:text-purple-200 transition-colors">
+                        {block.value}
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors transform group-hover:translate-x-1" />
+                </div>
+              </a>
+            ))}
           </div>
         </ScrollReveal>
+
+        {/* Contact Form */}
         <ScrollReveal delay={0.2}>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <input type="hidden" name="from_name" value="Grozan Studio Site" />
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">{t.contact.name}</label>
-              <input type="text" id="name" name="name" required className="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-white" />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">{t.contact.email}</label>
-              <input type="email" id="email" name="email" required className="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-white" />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">{t.contact.message}</label>
-              <textarea id="message" name="message" rows={4} required className="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-white"></textarea>
-            </div>
-            <button type="submit" className="w-full bg-white text-black font-bold py-3 px-6 rounded-md hover:bg-gray-200 transition-colors">
-              {t.contact.send}
-            </button>
-            {result && <p className="text-center mt-4">{result}</p>}
-          </form>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
+            <h2 className="text-2xl font-bold mb-6">{t.contact.title}</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <input type="hidden" name="from_name" value="Grozan Studio Site" />
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">
+                  {t.contact.name}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full bg-black/50 border border-white/10 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all placeholder-gray-600"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
+                  {t.contact.email}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full bg-black/50 border border-white/10 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all placeholder-gray-600"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
+                  {t.contact.message}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="w-full bg-black/50 border border-white/10 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all placeholder-gray-600 resize-none"
+                  placeholder={t.contact.message}
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-white text-black font-bold py-4 px-6 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 group"
+              >
+                <span>{t.contact.send}</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              {result && <p className="text-center mt-4 text-gray-300">{result}</p>}
+            </form>
+          </div>
         </ScrollReveal>
       </div>
     </div>
