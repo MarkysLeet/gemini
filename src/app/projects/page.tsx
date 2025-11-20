@@ -1,16 +1,24 @@
 "use client";
 import { useState } from "react";
-import { projects } from "@/data/projects";
+import { projects, ProjectCategory } from "@/data/projects";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-
-const categories = ["Все", "Кафе", "Рестораны", "Салоны"];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProjectsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("Все");
+  const { language, t } = useLanguage();
+  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory | "all">("all");
+
+  // Map categories using keys
+  const categories: { key: ProjectCategory | "all"; label: string }[] = [
+    { key: "all", label: t.projects.categories.all },
+    { key: "cafe", label: t.projects.categories.cafe },
+    { key: "restaurants", label: t.projects.categories.restaurants },
+    { key: "salons", label: t.projects.categories.salons },
+  ];
 
   const filteredProjects =
-    selectedCategory === "Все"
+    selectedCategory === "all"
       ? projects
       : projects.filter((p) => p.category === selectedCategory);
 
@@ -21,21 +29,21 @@ export default function ProjectsPage() {
         animate={{ opacity: 1, y: 0 }}
         className="text-5xl font-bold mb-12 text-center"
       >
-        Наши Проекты
+        {t.projects.title}
       </motion.h1>
 
       <div className="flex flex-wrap justify-center gap-4 mb-12">
-        {categories.map((category) => (
+        {categories.map((cat) => (
           <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
+            key={cat.key}
+            onClick={() => setSelectedCategory(cat.key)}
             className={`px-4 py-2 rounded-md transition-all active:scale-95 cursor-pointer ${
-              selectedCategory === category
+              selectedCategory === cat.key
                 ? "bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)]"
                 : "bg-gray-800 hover:bg-gray-700 text-white"
             }`}
           >
-            {category}
+            {cat.label}
           </button>
         ))}
       </div>
@@ -63,7 +71,7 @@ export default function ProjectsPage() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-300 transition-colors">{project.title}</h3>
-                    <p className="text-gray-400 line-clamp-3">{project.description}</p>
+                    <p className="text-gray-400 line-clamp-3">{project.description[language]}</p>
                   </div>
                 </div>
               </Link>

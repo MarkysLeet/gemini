@@ -3,88 +3,49 @@
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Check, Zap, Shield, Globe, Smartphone } from "lucide-react";
-
-const plans = [
-  {
-    title: "СТАРТ",
-    subtitle: "Эконом",
-    type: "Простой Одностраничный сайт",
-    description: "Идеально подходит для тех, кто ищет максимально бюджетное решение для быстрого запуска.",
-    price: "6,000 ₺ +",
-    duration: "5+ рабочих дней",
-    support: "Поддержка: 1 неделя",
-    features: [
-      "Одностраничный сайт (Landing Page)",
-      "Адаптивный дизайн (Mobile/Desktop)",
-      "Базовая SEO-оптимизация",
-      "Форма обратной связи",
-      "Подключение домена и хостинга",
-    ],
-    recommended: false,
-  },
-  {
-    title: "БАЗА",
-    subtitle: "Стандарт",
-    type: "Сайт-визитка / 3+ страниц",
-    description: "Наиболее сбалансированный вариант по цене и функционалу, подходящий для большинства локальных предприятий.",
-    price: "10,000 ₺ +",
-    duration: "2+ недели",
-    support: "Поддержка: 2 недели",
-    features: [
-      "Многостраничный сайт (3-5 страниц)",
-      "Удобная админ-панель (CMS)",
-      "Расширенная SEO и аналитика",
-      "Интеграция с картами и соцсетями",
-      "Базовая анимация элементов",
-      "Мультиязычность (базовая)",
-    ],
-    recommended: true,
-  },
-  {
-    title: "ПРОФИ",
-    subtitle: "Бизнес",
-    type: "Интернет-магазин / Крупный Проект",
-    description: "Для тех, кому требуется полноценная коммерческая платформа. Сложная разработка и логистика.",
-    price: "От 50,000 ₺",
-    duration: "От 5 недель",
-    support: "Поддержка: 1 месяц",
-    features: [
-      "Полноценный E-commerce / Каталог",
-      "Личный кабинет пользователя",
-      "Сложная бизнес-логика и интеграции",
-      "Премиум анимации и эффекты",
-      "Высокая производительность",
-      "Приоритетная поддержка",
-    ],
-    recommended: false,
-  },
-];
-
-const commonFeatures = [
-  {
-    icon: <Smartphone className="w-6 h-6 text-purple-400" />,
-    title: "Адаптивность",
-    description: "Все наши сайты идеально работают на смартфонах, планшетах и десктопах."
-  },
-  {
-    icon: <Zap className="w-6 h-6 text-purple-400" />,
-    title: "Скорость",
-    description: "Оптимизация загрузки и производительности для максимального удержания клиентов."
-  },
-  {
-    icon: <Globe className="w-6 h-6 text-purple-400" />,
-    title: "Хостинг и Домен",
-    description: "Помогаем с регистрацией, настройкой и запуском проекта под ключ."
-  },
-  {
-    icon: <Shield className="w-6 h-6 text-purple-400" />,
-    title: "Безопасность",
-    description: "Базовая защита от атак и настройка SSL сертификатов для каждого сайта."
-  }
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ServicesPage() {
+  const { t } = useLanguage();
   const phoneNumber = "905418462550";
+
+  // Map the plans from context to the format expected by the render loop
+  const plans = [
+    {
+      ...t.services.plans.start,
+      price: "6,000 ₺ +",
+      recommended: false,
+    },
+    {
+      ...t.services.plans.base,
+      price: "10,000 ₺ +",
+      recommended: true,
+    },
+    {
+      ...t.services.plans.profi,
+      price: "От 50,000 ₺", // Note: Prices are hardcoded in the component for now as they weren't in my translation map, but titles/desc are.
+      recommended: false,
+    },
+  ];
+
+  const commonFeaturesData = [
+    {
+      icon: <Smartphone className="w-6 h-6 text-purple-400" />,
+      ...t.services.common.features.adaptive
+    },
+    {
+      icon: <Zap className="w-6 h-6 text-purple-400" />,
+      ...t.services.common.features.speed
+    },
+    {
+      icon: <Globe className="w-6 h-6 text-purple-400" />,
+      ...t.services.common.features.hosting
+    },
+    {
+      icon: <Shield className="w-6 h-6 text-purple-400" />,
+      ...t.services.common.features.security
+    }
+  ];
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -94,9 +55,9 @@ export default function ServicesPage() {
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <h1 className="text-5xl font-bold mb-6">Наши Тарифы</h1>
+        <h1 className="text-5xl font-bold mb-6">{t.services.title}</h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-          Мы создаем сайты под ключ: от дизайна до запуска. Выберите решение, которое подходит именно вашему бизнесу.
+          {t.services.subtitle}
         </p>
       </motion.div>
 
@@ -112,7 +73,7 @@ export default function ServicesPage() {
             >
               {plan.recommended && (
                 <div className="bg-purple-600 text-white text-xs font-bold uppercase tracking-wider py-1.5 text-center w-full absolute top-0 left-0">
-                  Рекомендуемый выбор
+                  {t.services.recommended}
                 </div>
               )}
 
@@ -138,7 +99,7 @@ export default function ServicesPage() {
                 <div className="space-y-2 mb-8 text-sm text-gray-300">
                    <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-blue-400"></span>
-                      <span>Срок: <span className="text-white">{plan.duration}</span></span>
+                      <span><span className="text-white">{plan.duration}</span></span>
                    </div>
                    <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-green-400"></span>
@@ -169,7 +130,7 @@ export default function ServicesPage() {
                       : "bg-white/10 hover:bg-white/20 text-white"
                   }`}
                 >
-                  Выбрать тариф
+                  {t.services.selectPlan}
                 </a>
               </div>
             </div>
@@ -184,12 +145,12 @@ export default function ServicesPage() {
            viewport={{ once: true }}
            className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Что включено в каждый проект?</h2>
-          <p className="text-gray-400">Независимо от выбранного тарифа, вы получаете качественный продукт и сервис.</p>
+          <h2 className="text-3xl font-bold mb-4">{t.services.common.title}</h2>
+          <p className="text-gray-400">{t.services.common.subtitle}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-           {commonFeatures.map((feature, index) => (
+           {commonFeaturesData.map((feature, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
                  <div className="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-colors text-center h-full">
                     <div className="bg-gray-900 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">

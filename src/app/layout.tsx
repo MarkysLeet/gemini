@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import CustomCursor from "@/components/CustomCursor";
 import AuroraBackground from "@/components/AuroraBackground";
+import BackToTop from "@/components/BackToTop";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
           <Header />
           <main className="pt-24 pb-24 flex-grow">{children}</main>
           <Footer />
+          <BackToTop />
         </Providers>
       </body>
     </html>
