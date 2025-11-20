@@ -42,17 +42,15 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 bg-black/30 backdrop-blur-md border-b border-white/10">
-        <Link href="/" className="text-2xl font-bold z-50 relative group" onClick={() => setIsOpen(false)}>
+        <Link href="/" className="text-2xl font-bold z-50 relative" onClick={() => setIsOpen(false)}>
           Grozan Studio
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
         </Link>
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="relative group hover:text-gray-300 transition-colors active:scale-95 inline-block">
+                <Link href={link.href} className="relative hover:text-gray-300 transition-colors active:scale-95 inline-block">
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
             ))}
