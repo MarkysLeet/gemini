@@ -4,17 +4,20 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
-
-const navLinks = [
-  { href: "/projects", label: "Проекты" },
-  { href: "/services", label: "Услуги" },
-  { href: "/contact", label: "Контакты" },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Header() {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const navLinks = [
+    { href: "/projects", label: t.header.projects },
+    { href: "/services", label: t.header.services },
+    { href: "/contact", label: t.header.contact },
+  ];
 
   const menuVariants = {
     hidden: { opacity: 0, backdropFilter: "blur(0px)" },
@@ -45,18 +48,24 @@ export default function Header() {
         <Link href="/" className="text-2xl font-bold z-50 relative" onClick={() => setIsOpen(false)}>
           Grozan Studio
         </Link>
-        <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="relative hover:text-gray-300 transition-colors active:scale-95 inline-block">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="md:hidden z-50">
+
+        <div className="hidden md:flex items-center gap-8">
+          <nav>
+            <ul className="flex space-x-8">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="relative hover:text-gray-300 transition-colors active:scale-95 inline-block">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <LanguageSwitcher />
+        </div>
+
+        <div className="md:hidden z-50 flex items-center gap-4">
+          <LanguageSwitcher />
           <button onClick={toggleMenu} className="focus:outline-none p-2 active:scale-90 transition-transform">
             {/* Animated Burger/Close Icon */}
             <div className="w-6 h-5 flex flex-col justify-between items-center">
