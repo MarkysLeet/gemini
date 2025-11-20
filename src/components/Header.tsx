@@ -50,9 +50,9 @@ export default function Header() {
           <Image
             src="https://i.imgur.com/2PponBY.png"
             alt="Grozan Studio Logo"
-            width={32}
-            height={32}
-            className="hidden md:block object-contain h-8 w-auto"
+            width={48}
+            height={48}
+            className="hidden md:block object-contain h-12 w-auto"
           />
           <span className="text-xl md:text-2xl font-bold whitespace-nowrap">Grozan Studio</span>
         </Link>
