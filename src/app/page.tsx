@@ -42,7 +42,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="absolute bottom-24" // Moved up as requested (was bottom-10)
+            className="absolute bottom-[148px]"
           >
             <button
               onClick={handleScrollDown}

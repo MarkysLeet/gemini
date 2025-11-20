@@ -6,9 +6,9 @@ import { Globe, Check } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const languages = [
-  { code: "ru", label: "Русский", flag: "🇷🇺" },
-  { code: "en", label: "English", flag: "🇺🇸" },
-  { code: "tr", label: "Türkçe", flag: "🇹🇷" },
+  { code: "ru", label: "Русский" },
+  { code: "en", label: "English" },
+  { code: "tr", label: "Türkçe" },
 ] as const;
 
 export default function LanguageSwitcher() {
@@ -38,11 +38,11 @@ export default function LanguageSwitcher() {
     <div className="relative z-50" ref={dropdownRef}>
       <button
         onClick={toggleOpen}
-        className="flex items-center justify-center p-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all active:scale-95"
+        className="flex items-center justify-center px-4 py-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all active:scale-95 gap-2"
         aria-label="Change Language"
       >
-        <Globe className="w-6 h-6" />
-        <span className="sr-only">Change Language</span>
+        <Globe className="w-5 h-5" />
+        <span>{languages.find((l) => l.code === language)?.label}</span>
       </button>
 
       <AnimatePresence>
@@ -63,10 +63,7 @@ export default function LanguageSwitcher() {
                       language === lang.code ? "text-white font-bold" : "text-gray-300"
                     }`}
                   >
-                    <span className="flex items-center gap-2">
-                      <span>{lang.flag}</span>
-                      {lang.label}
-                    </span>
+                    <span>{lang.label}</span>
                     {language === lang.code && <Check className="w-4 h-4 text-purple-500" />}
                   </button>
                 </li>

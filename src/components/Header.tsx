@@ -128,7 +128,7 @@ export default function Header() {
             >
               <div className="flex items-center space-x-2">
                 <Mail className="w-5 h-5" />
-                <a href="mailto:grozantwink@gmail.com" className="hover:text-white transition-colors">grozantwink@gmail.com</a>
+                <a href="mailto:grozan.studio@gmail.com" className="hover:text-white transition-colors">grozan.studio@gmail.com</a>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-5 h-5" />
@@ -136,7 +136,14 @@ export default function Header() {
               </div>
               <div className="pt-4 flex space-x-6">
                 {/* Social Placeholders */}
-                <a href="#" className="text-sm uppercase tracking-widest hover:text-white transition-colors border-b border-transparent hover:border-white">Instagram</a>
+                <a
+                  href="https://www.instagram.com/grozan.studio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm uppercase tracking-widest hover:text-white transition-colors border-b border-transparent hover:border-white"
+                >
+                  Instagram
+                </a>
                 <a href="#" className="text-sm uppercase tracking-widest hover:text-white transition-colors border-b border-transparent hover:border-white">WhatsApp</a>
               </div>
             </motion.div>
