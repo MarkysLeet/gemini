@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   keywords: ["веб-студия", "разработка сайтов", "дизайн сайтов", "Grozan Studio", "креативная студия"],
+  icons: {
+    icon: "https://i.imgur.com/2PponBY.png",
+    shortcut: "https://i.imgur.com/2PponBY.png",
+    apple: "https://i.imgur.com/2PponBY.png",
+  },
 };
 
 export default function RootLayout({

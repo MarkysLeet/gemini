@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -45,8 +46,15 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 bg-black/30 backdrop-blur-md border-b border-white/10">
-        <Link href="/" className="text-2xl font-bold z-50 relative" onClick={() => setIsOpen(false)}>
-          Grozan Studio
+        <Link href="/" className="flex items-center gap-3 z-50 relative" onClick={() => setIsOpen(false)}>
+          <Image
+            src="https://i.imgur.com/2PponBY.png"
+            alt="Grozan Studio Logo"
+            width={32}
+            height={32}
+            className="hidden md:block object-contain h-8 w-auto"
+          />
+          <span className="text-xl md:text-2xl font-bold whitespace-nowrap">Grozan Studio</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
