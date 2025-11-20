@@ -11,24 +11,35 @@ const CustomCursor = () => {
   useEffect(() => {
     // Check for touch device capabilities
     const checkTouch = () => {
-      if (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window) {
-        setIsTouchDevice(true);
-      }
+        return window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window;
     };
-    checkTouch();
-    window.addEventListener('resize', checkTouch);
-    return () => window.removeEventListener('resize', checkTouch);
-  }, []);
 
-  useEffect(() => {
+    if (checkTouch()) {
+      setIsTouchDevice(true);
+      return; // Do not add listeners on touch devices
+    }
+
     const mouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     window.addEventListener("mousemove", mouseMove);
 
+    const handleMouseEnter = () => setCursorVariant("text");
+    const handleMouseLeave = () => setCursorVariant("default");
+
+    const links = document.querySelectorAll('a, button');
+    links.forEach(link => {
+      link.addEventListener('mouseenter', handleMouseEnter);
+      link.addEventListener('mouseleave', handleMouseLeave);
+    });
+
     return () => {
       window.removeEventListener("mousemove", mouseMove);
+      links.forEach(link => {
+        link.removeEventListener('mouseenter', handleMouseEnter);
+        link.removeEventListener('mouseleave', handleMouseLeave);
+      });
     };
   }, []);
 
@@ -50,24 +61,6 @@ const CustomCursor = () => {
         mixBlendMode: "difference" as const,
     },
   };
-
-  useEffect(() => {
-    const handleMouseEnter = () => setCursorVariant("text");
-    const handleMouseLeave = () => setCursorVariant("default");
-
-    const links = document.querySelectorAll('a, button');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', handleMouseEnter);
-      link.addEventListener('mouseleave', handleMouseLeave);
-    });
-
-    return () => {
-        links.forEach(link => {
-            link.removeEventListener('mouseenter', handleMouseEnter);
-            link.removeEventListener('mouseleave', handleMouseLeave);
-        });
-    }
-  }, []);
 
   if (isTouchDevice) return null;
 
