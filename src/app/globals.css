@@ -5,3 +5,9 @@
 * {
   cursor: none;
 }
+
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto;
+  }
+}

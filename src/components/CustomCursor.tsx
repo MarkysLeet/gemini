@@ -6,6 +6,19 @@ import { motion } from 'framer-motion';
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVariant, setCursorVariant] = useState("default");
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // Check for touch device capabilities
+    const checkTouch = () => {
+      if (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window) {
+        setIsTouchDevice(true);
+      }
+    };
+    checkTouch();
+    window.addEventListener('resize', checkTouch);
+    return () => window.removeEventListener('resize', checkTouch);
+  }, []);
 
   useEffect(() => {
     const mouseMove = (e: MouseEvent) => {
@@ -55,6 +68,8 @@ const CustomCursor = () => {
         });
     }
   }, []);
+
+  if (isTouchDevice) return null;
 
   return (
     <motion.div
