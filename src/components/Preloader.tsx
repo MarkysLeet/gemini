@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useLoading } from "@/context/LoadingContext";
 
 const Preloader = () => {
   const [isCompleted, setIsCompleted] = useState(false);
+  const { setIsLoading } = useLoading();
 
   const text = "Grozan Studio";
   const containerVariants = {
@@ -27,6 +29,11 @@ const Preloader = () => {
     }),
   };
 
+  const handleAnimationComplete = () => {
+    setIsCompleted(true);
+    setIsLoading(false);
+  };
+
   if (isCompleted) {
     return null;
   }
@@ -37,7 +44,7 @@ const Preloader = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      onAnimationComplete={() => setIsCompleted(true)}
+      onAnimationComplete={handleAnimationComplete}
     >
       <motion.h1 className="text-white text-4xl md:text-6xl font-bold" aria-label={text}>
         {text.split("").map((char, i) => (
