@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 import { Instagram } from "lucide-react";
 
 export default function Footer() {
@@ -8,7 +9,16 @@ export default function Footer() {
 
   return (
     <footer className="w-full p-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-      <p>&copy; {new Date().getFullYear()} {t.footer.rights}</p>
+      <div className="flex items-center gap-3">
+        <Image
+          src="https://i.imgur.com/2PponBY.png"
+          alt="Grozan Studio Logo"
+          width={32}
+          height={32}
+          className="object-contain"
+        />
+        <p>&copy; {new Date().getFullYear()} {t.footer.rights}</p>
+      </div>
       <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
         <a href="mailto:grozan.studio@gmail.com" className="hover:text-white transition-colors">grozan.studio@gmail.com</a>
         <a href="tel:+905418462550" className="hover:text-white transition-colors">+90 541 846 25 50</a>

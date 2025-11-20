@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 import { useLoading } from "@/context/LoadingContext";
 
 const Preloader = () => {
@@ -23,10 +24,24 @@ const Preloader = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.1,
+        delay: 0.8 + i * 0.1,
         duration: 0.5,
       },
     }),
+  };
+
+  const logoVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: -20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        delay: 0.1,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
   };
 
   const handleAnimationComplete = () => {
@@ -40,12 +55,21 @@ const Preloader = () => {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black flex justify-center items-center z-[100]"
+      className="fixed inset-0 bg-black flex flex-col justify-center items-center z-[100]"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
       onAnimationComplete={handleAnimationComplete}
     >
+      <motion.div variants={logoVariants} className="mb-6 relative w-24 h-24 md:w-32 md:h-32">
+        <Image
+          src="https://i.imgur.com/2PponBY.png"
+          alt="Grozan Studio Logo"
+          fill
+          className="object-contain"
+          priority
+        />
+      </motion.div>
       <motion.h1 className="text-white text-4xl md:text-6xl font-bold" aria-label={text}>
         {text.split("").map((char, i) => (
           <motion.span
