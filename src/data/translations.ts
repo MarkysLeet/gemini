@@ -58,6 +58,8 @@ export interface Translation {
       title: string;
       name: string;
       email: string;
+      phone?: string;
+      validationError?: string;
       message: string;
       send: string;
       sending: string;
@@ -216,6 +218,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
         title: "Свяжитесь с нами",
         name: "Ваше Имя",
         email: "Email",
+        phone: "Телефон / WhatsApp",
+        validationError: "Пожалуйста, укажите Email или Телефон",
         message: "Сообщение",
         send: "Отправить",
         sending: "Отправка...",
@@ -233,7 +237,7 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       backBtn: "Назад к вводу",
       error: "Не удалось связаться с AI. Пожалуйста, попробуйте позже.",
       examplesTitle: "Примеры запросов:",
-      examples: ["SaaS для HR", "Интернет-магазин одежды", "Крипто-кошелек"],
+      examples: ["Одностраничный сайт-визитка", "Многостраничный сайт для ресторана", "Интернет-магазин одежды"],
     },
     speedReliability: {
       badge: "СКОРОСТЬ & НАДЕЖНОСТЬ",
@@ -362,6 +366,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
         title: "Contact Us",
         name: "Your Name",
         email: "Email",
+        phone: "Phone / WhatsApp",
+        validationError: "Please enter Email or Phone",
         message: "Message",
         send: "Send",
         sending: "Sending...",
@@ -379,7 +385,7 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       backBtn: "Back to input",
       error: "Failed to connect to AI. Please try again later.",
       examplesTitle: "Example prompts:",
-      examples: ["SaaS for HR", "Clothing E-commerce", "Crypto Wallet"],
+      examples: ["Landing Page", "Restaurant Website", "Clothing Online Store"],
     },
     speedReliability: {
       badge: "SPEED & RELIABILITY",
@@ -508,6 +514,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
         title: "Bize Ulaşın",
         name: "Adınız",
         email: "E-posta",
+        phone: "Telefon / WhatsApp",
+        validationError: "Lütfen E-posta veya Telefon giriniz",
         message: "Mesaj",
         send: "Gönder",
         sending: "Gönderiliyor...",
@@ -525,7 +533,7 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       backBtn: "Girişe dön",
       error: "AI ile bağlantı hatası. Lütfen daha sonra tekrar deneyin.",
       examplesTitle: "Örnek istemler:",
-      examples: ["İK için SaaS", "Giyim E-ticareti", "Kripto Cüzdan"],
+      examples: ["Tek Sayfalık Tanıtım Sitesi", "Restoran Web Sitesi", "Giyim E-ticaret Sitesi"],
     },
     speedReliability: {
       badge: "HIZ & GÜVENİLİRLİK",

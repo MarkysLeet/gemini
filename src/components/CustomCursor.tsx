@@ -28,17 +28,28 @@ const CustomCursor = () => {
     const handleMouseEnter = () => setCursorVariant("text");
     const handleMouseLeave = () => setCursorVariant("default");
 
-    const links = document.querySelectorAll('a, button');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', handleMouseEnter);
-      link.addEventListener('mouseleave', handleMouseLeave);
+    // Select links, buttons, and inputs (excluding textarea)
+    // Also include labels that wrap inputs or are 'for' inputs implicitly if needed,
+    // but usually inputs themselves are enough.
+    // Added specific input types to avoid selecting hidden inputs or file uploads if undesired,
+    // but generic 'input:not([type="hidden"])' is usually safe.
+    // Excluding textarea as requested.
+    const selector = 'a, button, input:not([type="hidden"]), select, .cursor-hover';
+    const elements = document.querySelectorAll(selector);
+
+    elements.forEach(el => {
+      // Double check it's not a textarea (though input selector shouldn't catch it)
+      if (el.tagName.toLowerCase() === 'textarea') return;
+
+      el.addEventListener('mouseenter', handleMouseEnter);
+      el.addEventListener('mouseleave', handleMouseLeave);
     });
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
-      links.forEach(link => {
-        link.removeEventListener('mouseenter', handleMouseEnter);
-        link.removeEventListener('mouseleave', handleMouseLeave);
+      elements.forEach(el => {
+        el.removeEventListener('mouseenter', handleMouseEnter);
+        el.removeEventListener('mouseleave', handleMouseLeave);
       });
     };
   }, []);
