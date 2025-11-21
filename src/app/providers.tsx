@@ -2,11 +2,16 @@
 
 import { LoadingProvider } from "@/context/LoadingContext";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { AiProvider } from "@/context/AiContext";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <LanguageProvider>
-      <LoadingProvider>{children}</LoadingProvider>
+      <LoadingProvider>
+        <AiProvider>
+          {children}
+        </AiProvider>
+      </LoadingProvider>
     </LanguageProvider>
   );
 }

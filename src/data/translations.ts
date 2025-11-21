@@ -4,11 +4,13 @@ export interface Translation {
     projects: string;
     services: string;
     contact: string;
+    aiStart: string;
   };
   hero: {
     title: string;
     subtitle: string;
     scrollDown: string;
+    aiStart: string;
   };
   about: {
     title: string;
@@ -61,6 +63,25 @@ export interface Translation {
       sending: string;
       success: string;
       error: string;
+  };
+  ai: {
+    modalTitle: string;
+    modalDesc: string;
+    placeholder: string;
+    generateBtn: string;
+    analyzing: string;
+    resultTitle: string;
+    discussBtn: string;
+    backBtn: string;
+    error: string;
+    examplesTitle: string;
+    examples: string[];
+  };
+  speedReliability: {
+    badge: string;
+    title: string;
+    description: string;
+    items: string[];
   }
 }
 
@@ -85,11 +106,13 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       projects: "Проекты",
       services: "Услуги",
       contact: "Контакты",
+      aiStart: "AI Старт",
     },
     hero: {
       title: "Grozan Studio",
       subtitle: "Создаем не просто сайты, а впечатления.",
       scrollDown: "Вниз",
+      aiStart: "Оценить идею с AI",
     },
     about: {
       title: "Дизайн, который рассказывает вашу историю.",
@@ -198,6 +221,30 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
         sending: "Отправка...",
         success: "Сообщение отправлено!",
         error: "Произошла ошибка. Попробуйте позже.",
+    },
+    ai: {
+      modalTitle: "AI Архитектор Проекта",
+      modalDesc: "Опишите идею — получите тех. план за секунды",
+      placeholder: "Например: Хочу маркетплейс для аренды строительной техники с геолокацией и чатами...",
+      generateBtn: "Сгенерировать План",
+      analyzing: "Анализирую...",
+      resultTitle: "Анализ Grozan AI",
+      discussBtn: "Обсудить этот план",
+      backBtn: "Назад к вводу",
+      error: "Не удалось связаться с AI. Пожалуйста, попробуйте позже.",
+      examplesTitle: "Примеры запросов:",
+      examples: ["SaaS для HR", "Интернет-магазин одежды", "Крипто-кошелек"],
+    },
+    speedReliability: {
+      badge: "СКОРОСТЬ & НАДЕЖНОСТЬ",
+      title: "Разработано для масштабирования с первого дня",
+      description: "Мы не просто пишем код, мы строим архитектуру, способную выдерживать миллионы запросов без потери производительности.",
+      items: [
+        "Оптимизация под Core Web Vitals",
+        "Безопасность уровня Enterprise",
+        "Облачная инфраструктура (AWS/Vercel)",
+        "Поддержка 24/7"
+      ]
     }
   },
   en: {
@@ -205,11 +252,13 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       projects: "Projects",
       services: "Services",
       contact: "Contact",
+      aiStart: "AI Start",
     },
     hero: {
       title: "Grozan Studio",
       subtitle: "We create not just websites, but impressions.",
       scrollDown: "Down",
+      aiStart: "Rate idea with AI",
     },
     about: {
       title: "Design that tells your story.",
@@ -318,6 +367,30 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
         sending: "Sending...",
         success: "Message sent!",
         error: "An error occurred. Please try again later.",
+    },
+    ai: {
+      modalTitle: "AI Project Architect",
+      modalDesc: "Describe your idea — get a technical plan in seconds",
+      placeholder: "E.g., I want a marketplace for construction equipment rental with geolocation and chats...",
+      generateBtn: "Generate Plan",
+      analyzing: "Analyzing...",
+      resultTitle: "Grozan AI Analysis",
+      discussBtn: "Discuss this plan",
+      backBtn: "Back to input",
+      error: "Failed to connect to AI. Please try again later.",
+      examplesTitle: "Example prompts:",
+      examples: ["SaaS for HR", "Clothing E-commerce", "Crypto Wallet"],
+    },
+    speedReliability: {
+      badge: "SPEED & RELIABILITY",
+      title: "Designed to scale from day one",
+      description: "We don't just write code, we build architecture capable of withstanding millions of requests without loss of performance.",
+      items: [
+        "Core Web Vitals Optimization",
+        "Enterprise-level Security",
+        "Cloud Infrastructure (AWS/Vercel)",
+        "24/7 Support"
+      ]
     }
   },
   tr: {
@@ -325,11 +398,13 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       projects: "Projeler",
       services: "Hizmetler",
       contact: "İletişim",
+      aiStart: "AI Başlat",
     },
     hero: {
       title: "Grozan Studio",
       subtitle: "Sadece web siteleri değil, izlenimler yaratıyoruz.",
       scrollDown: "Aşağı",
+      aiStart: "AI ile fikri değerlendir",
     },
     about: {
       title: "Hikayenizi anlatan tasarım.",
@@ -438,6 +513,30 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
         sending: "Gönderiliyor...",
         success: "Mesaj gönderildi!",
         error: "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    },
+    ai: {
+      modalTitle: "AI Proje Mimarı",
+      modalDesc: "Fikrinizi tanımlayın — saniyeler içinde teknik bir plan alın",
+      placeholder: "Örneğin: Konum ve sohbet özellikli bir inşaat ekipmanı kiralama pazarı istiyorum...",
+      generateBtn: "Plan Oluştur",
+      analyzing: "Analiz ediliyor...",
+      resultTitle: "Grozan AI Analizi",
+      discussBtn: "Bu planı tartış",
+      backBtn: "Girişe dön",
+      error: "AI ile bağlantı hatası. Lütfen daha sonra tekrar deneyin.",
+      examplesTitle: "Örnek istemler:",
+      examples: ["İK için SaaS", "Giyim E-ticareti", "Kripto Cüzdan"],
+    },
+    speedReliability: {
+      badge: "HIZ & GÜVENİLİRLİK",
+      title: "İlk günden itibaren ölçeklenmek üzere tasarlandı",
+      description: "Sadece kod yazmıyoruz, performans kaybı olmadan milyonlarca isteğe dayanabilecek bir mimari inşa ediyoruz.",
+      items: [
+        "Core Web Vitals Optimizasyonu",
+        "Kurumsal düzeyde Güvenlik",
+        "Bulut Altyapısı (AWS/Vercel)",
+        "7/24 Destek"
+      ]
     }
   },
 };

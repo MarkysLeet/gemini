@@ -6,6 +6,7 @@ import Preloader from "@/components/Preloader";
 import CustomCursor from "@/components/CustomCursor";
 import AuroraBackground from "@/components/AuroraBackground";
 import BackToTop from "@/components/BackToTop";
+import AiModal from "@/components/AiModal";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
           <AuroraBackground />
           <CustomCursor />
           <Preloader />
+          <AiModal />
           <Header />
           <main className="pt-24 pb-24 flex-grow">{children}</main>
           <Footer />

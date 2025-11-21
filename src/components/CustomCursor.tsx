@@ -69,7 +69,7 @@ const CustomCursor = () => {
       className='fixed top-0 left-0 rounded-full pointer-events-none z-[999]'
       variants={variants}
       animate={cursorVariant}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      transition={{ type: "spring", stiffness: 800, damping: 20 }}
     />
   );
 };

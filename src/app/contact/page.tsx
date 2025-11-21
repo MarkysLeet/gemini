@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Phone, Instagram, ArrowRight } from "lucide-react";
@@ -8,6 +8,15 @@ import { Mail, Phone, Instagram, ArrowRight } from "lucide-react";
 export default function ContactPage() {
   const { t } = useLanguage();
   const [result, setResult] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const savedPlan = sessionStorage.getItem('grozan-ai-plan');
+    if (savedPlan) {
+      setMessage(savedPlan);
+      sessionStorage.removeItem('grozan-ai-plan');
+    }
+  }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -134,9 +143,11 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   name="message"
-                  rows={4}
+                  rows={6}
                   required
-                  className="w-full bg-black/50 border border-white/10 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all placeholder-gray-600 resize-none"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full bg-black/50 border border-white/10 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all placeholder-gray-600 resize-none custom-scrollbar"
                   placeholder={t.contact.message}
                 ></textarea>
               </div>

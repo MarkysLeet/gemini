@@ -3,13 +3,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import SpeedReliability from "@/components/SpeedReliability";
 import { useLoading } from "@/context/LoadingContext";
 import { useLanguage } from "@/context/LanguageContext";
-import { ChevronDown } from "lucide-react";
+import { useAi } from "@/context/AiContext";
+import { ChevronDown, Sparkles } from "lucide-react";
 
 export default function Home() {
   const { isLoading } = useLoading();
   const { t } = useLanguage();
+  const { openAiModal } = useAi();
 
   const handleScrollDown = () => {
     const aboutSection = document.getElementById("about");
@@ -46,34 +49,53 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={isLoading ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-2xl text-gray-300"
+          className="text-lg md:text-2xl text-gray-300 mb-10"
         >
           {t.hero.subtitle}
         </motion.p>
 
         {!isLoading && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="absolute bottom-[148px]"
-          >
-            <button
-              onClick={handleScrollDown}
-              className="flex flex-col items-center text-gray-400 hover:text-white transition-colors focus:outline-none"
-              aria-label={t.hero.scrollDown}
+          <>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mb-24"
             >
-              <span className="text-sm mb-2">{t.hero.scrollDown}</span>
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+               <button
+                onClick={openAiModal}
+                className="group bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 mx-auto"
               >
-                <ChevronDown size={32} />
-              </motion.div>
-            </button>
-          </motion.div>
+                <Sparkles className="w-5 h-5 text-yellow-300 animate-pulse" />
+                {t.hero.aiStart}
+              </button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="absolute bottom-[148px]"
+            >
+              <button
+                onClick={handleScrollDown}
+                className="flex flex-col items-center text-gray-400 hover:text-white transition-colors focus:outline-none"
+                aria-label={t.hero.scrollDown}
+              >
+                <span className="text-sm mb-2">{t.hero.scrollDown}</span>
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <ChevronDown size={32} />
+                </motion.div>
+              </button>
+            </motion.div>
+          </>
         )}
       </div>
+
+      <SpeedReliability />
 
       <div id="about">
         <ScrollReveal>
