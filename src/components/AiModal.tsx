@@ -43,9 +43,10 @@ const AiModal = () => {
       }
 
       setAiResponse(data.text);
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      setAiError(t.ai.error);
+      // Display the specific error message if available, otherwise the generic one
+      setAiError(err.message || t.ai.error);
     } finally {
       setIsAiLoading(false);
     }

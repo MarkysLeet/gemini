@@ -10,9 +10,10 @@ export async function POST(request: Request) {
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
+
     if (!apiKey) {
         console.error("GEMINI_API_KEY is not set");
-        return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+        return NextResponse.json({ error: 'Server configuration error: API Key missing' }, { status: 500 });
     }
 
     const languageNames: Record<string, string> = {
@@ -58,7 +59,9 @@ export async function POST(request: Request) {
     if (!response.ok) {
       const errorData = await response.json();
       console.error("Gemini API Error Details:", errorData);
-      return NextResponse.json({ error: `API Error: ${response.status}` }, { status: response.status });
+      // Extract a more useful error message if possible
+      const errorMessage = errorData?.error?.message || errorData?.error?.status || `API Error: ${response.status}`;
+      return NextResponse.json({ error: errorMessage }, { status: response.status });
     }
 
     const data = await response.json();
