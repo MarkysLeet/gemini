@@ -9,6 +9,8 @@ export default function ContactPage() {
   const { t } = useLanguage();
   const [result, setResult] = useState("");
   const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
   useEffect(() => {
     const savedPlan = sessionStorage.getItem('grozan-ai-plan');
@@ -20,6 +22,12 @@ export default function ContactPage() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!email && !phone) {
+        setResult(t.contact.validationError || "Please enter Email or Phone");
+        return;
+    }
+
     setResult(t.contact.sending);
     const formData = new FormData(event.currentTarget);
 
@@ -35,6 +43,9 @@ export default function ContactPage() {
     if (data.success) {
       setResult(t.contact.success);
       (event.target as HTMLFormElement).reset();
+      setEmail("");
+      setPhone("");
+      setMessage("");
     } else {
       console.log("Error", data);
       setResult(t.contact.error);
@@ -123,19 +134,38 @@ export default function ContactPage() {
                   placeholder="John Doe"
                 />
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
-                  {t.contact.email}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full bg-black/50 border border-white/10 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all placeholder-gray-600"
-                  placeholder="john@example.com"
-                />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
+                    {t.contact.email}
+                    </label>
+                    <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full bg-black/50 border border-white/10 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all placeholder-gray-600"
+                    placeholder="john@example.com"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-2">
+                    {t.contact.phone || "Phone (WhatsApp)"}
+                    </label>
+                    <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full bg-black/50 border border-white/10 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all placeholder-gray-600"
+                    placeholder="+90 555 123 4567"
+                    />
+                </div>
               </div>
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
                   {t.contact.message}
