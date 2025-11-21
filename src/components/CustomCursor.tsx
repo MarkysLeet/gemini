@@ -63,45 +63,45 @@ const CustomCursor = () => {
 
   const variants = {
     default: {
-      x: mousePosition.x - 8,
-      y: mousePosition.y - 8,
       height: 16,
       width: 16,
       backgroundColor: "white",
       mixBlendMode: "difference" as const,
-      transition: {
-        type: "tween",
-        ease: "backOut",
-        duration: 0.2,
-        x: { duration: 0 },
-        y: { duration: 0 }
-      }
     },
     text: {
-        x: mousePosition.x - 32,
-        y: mousePosition.y - 32,
         height: 64,
         width: 64,
         backgroundColor: "white",
         mixBlendMode: "difference" as const,
-        transition: {
-            type: "tween",
-            ease: "backOut",
-            duration: 0.2,
-            x: { duration: 0 },
-            y: { duration: 0 }
-        }
     },
+  };
+
+  // Slower, smoother transition without overshoot
+  const transition = {
+    type: "tween",
+    ease: "easeOut",
+    duration: 0.4,
   };
 
   if (isTouchDevice) return null;
 
   return (
     <motion.div
-      className='fixed top-0 left-0 rounded-full pointer-events-none z-[999]'
-      variants={variants}
-      animate={cursorVariant}
-    />
+      className='fixed top-0 left-0 z-[999] pointer-events-none'
+      animate={{ x: mousePosition.x, y: mousePosition.y }}
+      transition={{ duration: 0, ease: "linear" }}
+    >
+        <motion.div
+            className='rounded-full'
+            variants={variants}
+            animate={cursorVariant}
+            transition={transition}
+            style={{
+                x: "-50%",
+                y: "-50%"
+            }}
+        />
+    </motion.div>
   );
 };
 
