@@ -15,9 +15,9 @@ export default function Home() {
   const { openAiModal } = useAi();
 
   const handleScrollDown = () => {
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
+    const nextSection = document.getElementById("speed-reliability");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -95,7 +95,9 @@ export default function Home() {
         )}
       </div>
 
-      <SpeedReliability />
+      <div id="speed-reliability">
+        <SpeedReliability />
+      </div>
 
       <div id="about">
         <ScrollReveal>
