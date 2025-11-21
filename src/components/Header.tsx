@@ -4,12 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useAi } from "@/context/AiContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Header() {
   const { t } = useLanguage();
+  const { openAiModal } = useAi();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -59,7 +61,7 @@ export default function Header() {
 
         <div className="hidden md:flex items-center gap-8">
           <nav>
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-8 items-center">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="relative hover:text-gray-300 transition-colors active:scale-95 inline-block">
@@ -67,6 +69,15 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={openAiModal}
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full font-medium transition-all duration-300 shadow-lg shadow-indigo-500/25 flex items-center gap-2 text-sm"
+                >
+                  <Sparkles className="w-3 h-3" />
+                  {t.header.aiStart}
+                </button>
+              </li>
             </ul>
           </nav>
           <LanguageSwitcher />
@@ -124,6 +135,24 @@ export default function Header() {
                         </Link>
                     </motion.li>
                 ))}
+                <motion.li
+                  custom={navLinks.length}
+                  variants={linkVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="w-full flex justify-center pt-4"
+                >
+                  <button
+                    onClick={() => {
+                      toggleMenu();
+                      openAiModal();
+                    }}
+                    className="bg-indigo-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center gap-2 text-xl shadow-lg shadow-indigo-500/30"
+                  >
+                    <Sparkles className="w-5 h-5" />
+                    {t.header.aiStart}
+                  </button>
+                </motion.li>
               </ul>
             </nav>
 
