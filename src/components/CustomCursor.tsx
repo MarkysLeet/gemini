@@ -70,11 +70,10 @@ const CustomCursor = () => {
       backgroundColor: "white",
       mixBlendMode: "difference" as const,
       transition: {
-        type: "tween",
-        ease: "easeOut",
-        duration: 0.1,
-        x: { duration: 0 },
-        y: { duration: 0 }
+        x: { type: "spring", stiffness: 450, damping: 30, mass: 0.5 },
+        y: { type: "spring", stiffness: 450, damping: 30, mass: 0.5 },
+        height: { type: "tween", ease: "easeOut", duration: 0.2 },
+        width: { type: "tween", ease: "easeOut", duration: 0.2 }
       }
     },
     text: {
@@ -85,11 +84,10 @@ const CustomCursor = () => {
         backgroundColor: "white",
         mixBlendMode: "difference" as const,
         transition: {
-            type: "tween",
-            ease: "backOut",
-            duration: 0.3,
-            x: { duration: 0 },
-            y: { duration: 0 }
+            x: { type: "spring", stiffness: 450, damping: 30, mass: 0.5 },
+            y: { type: "spring", stiffness: 450, damping: 30, mass: 0.5 },
+            height: { type: "tween", ease: "backOut", duration: 0.3 },
+            width: { type: "tween", ease: "backOut", duration: 0.3 }
         }
     },
   };
