@@ -16,41 +16,48 @@ const CustomCursor = () => {
 
     if (checkTouch()) {
       setIsTouchDevice(true);
-      return; // Do not add listeners on touch devices
+      return;
     }
 
     const mouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener("mousemove", mouseMove);
-
-    const handleMouseEnter = () => setCursorVariant("text");
-    const handleMouseLeave = () => setCursorVariant("default");
-
-    // Select links, buttons, and inputs (excluding textarea)
-    // Also include labels that wrap inputs or are 'for' inputs implicitly if needed,
-    // but usually inputs themselves are enough.
-    // Added specific input types to avoid selecting hidden inputs or file uploads if undesired,
-    // but generic 'input:not([type="hidden"])' is usually safe.
-    // Excluding textarea as requested.
     const selector = 'a, button, input:not([type="hidden"]), select, .cursor-hover';
-    const elements = document.querySelectorAll(selector);
 
-    elements.forEach(el => {
-      // Double check it's not a textarea (though input selector shouldn't catch it)
-      if (el.tagName.toLowerCase() === 'textarea') return;
+    const handleMouseOver = (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        // Ignore textarea explicitly
+        if (target.tagName.toLowerCase() === 'textarea') return;
 
-      el.addEventListener('mouseenter', handleMouseEnter);
-      el.addEventListener('mouseleave', handleMouseLeave);
-    });
+        if (target.closest(selector)) {
+            setCursorVariant("text");
+        }
+    };
+
+    const handleMouseOut = (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        const related = e.relatedTarget as HTMLElement;
+
+        if (target.tagName.toLowerCase() === 'textarea') return;
+
+        // If we were on an interactive element
+        if (target.closest(selector)) {
+             // And we are going to something that is NOT interactive
+             if (!related || (!related.closest(selector) && related.tagName.toLowerCase() !== 'textarea')) {
+                 setCursorVariant("default");
+             }
+        }
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+    window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mouseout", handleMouseOut);
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
-      elements.forEach(el => {
-        el.removeEventListener('mouseenter', handleMouseEnter);
-        el.removeEventListener('mouseleave', handleMouseLeave);
-      });
+      window.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener("mouseout", handleMouseOut);
     };
   }, []);
 
@@ -62,6 +69,13 @@ const CustomCursor = () => {
       width: 16,
       backgroundColor: "white",
       mixBlendMode: "difference" as const,
+      transition: {
+        type: "tween",
+        ease: "backOut",
+        duration: 0.2,
+        x: { duration: 0 },
+        y: { duration: 0 }
+      }
     },
     text: {
         x: mousePosition.x - 32,
@@ -70,6 +84,13 @@ const CustomCursor = () => {
         width: 64,
         backgroundColor: "white",
         mixBlendMode: "difference" as const,
+        transition: {
+            type: "tween",
+            ease: "backOut",
+            duration: 0.2,
+            x: { duration: 0 },
+            y: { duration: 0 }
+        }
     },
   };
 
@@ -80,7 +101,6 @@ const CustomCursor = () => {
       className='fixed top-0 left-0 rounded-full pointer-events-none z-[999]'
       variants={variants}
       animate={cursorVariant}
-      transition={{ duration: 0 }}
     />
   );
 };
