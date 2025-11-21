@@ -53,7 +53,17 @@ const AiModal = () => {
 
   const handleDiscussPlan = () => {
     if (aiResponse) {
-      sessionStorage.setItem('grozan-ai-plan', `Prompt: ${aiPrompt}\n\nAI Plan:\n${aiResponse}`);
+      const formattedMessage = `
+Client Vision / Prompt:
+${aiPrompt}
+
+----------------------------------------
+
+AI Architect Suggested Plan:
+${aiResponse}
+      `.trim();
+
+      sessionStorage.setItem('grozan-ai-plan', formattedMessage);
       closeAiModal();
       router.push('/contact');
     }

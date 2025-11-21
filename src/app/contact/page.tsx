@@ -23,7 +23,7 @@ export default function ContactPage() {
     setResult(t.contact.sending);
     const formData = new FormData(event.currentTarget);
 
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // Замените на ваш ключ от web3forms
+    formData.append("access_key", "210c77ee-8c09-494c-b58e-fa523bd8defd");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
