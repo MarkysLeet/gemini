@@ -71,8 +71,8 @@ const CustomCursor = () => {
       mixBlendMode: "difference" as const,
       transition: {
         type: "tween",
-        ease: "backOut",
-        duration: 0.2,
+        ease: "easeOut",
+        duration: 0.1,
         x: { duration: 0 },
         y: { duration: 0 }
       }
@@ -87,7 +87,7 @@ const CustomCursor = () => {
         transition: {
             type: "tween",
             ease: "backOut",
-            duration: 0.2,
+            duration: 0.3,
             x: { duration: 0 },
             y: { duration: 0 }
         }
