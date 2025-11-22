@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "./ScrollReveal";
+import SpotlightCard from "./SpotlightCard";
 
 const FeaturedProjects = () => {
   const { t, language } = useLanguage();
@@ -34,34 +35,39 @@ const FeaturedProjects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group relative lg:col-span-2 h-[400px] lg:h-full rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
+            className="relative lg:col-span-2 h-[400px] lg:h-full"
           >
-            <Link href={`/projects/${featuredProjects[0].id}`} className="block w-full h-full relative">
-              {/* Image Placeholder with Zoom Effect */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                   <span className="text-white/30 text-2xl font-mono font-bold">650x400</span>
-                </div>
-              </div>
+            {/* Backdrop Glow */}
+            <div className="absolute -inset-4 bg-indigo-500/10 rounded-[2rem] blur-2xl opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 -z-10" />
 
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 w-full p-8">
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="flex gap-2 mb-3 flex-wrap">
-                     {/* Glass Chip */}
-                    <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-white/90 bg-white/10 backdrop-blur-md border border-white/5 rounded-full">
-                      {t.projects.categories[featuredProjects[0].category] || featuredProjects[0].category}
-                    </span>
+            <Link href={`/projects/${featuredProjects[0].id}`} className="block w-full h-full">
+              <SpotlightCard className="h-full">
+                {/* Image Placeholder with Zoom Effect */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
+                    <span className="text-white/30 text-2xl font-mono font-bold">650x400</span>
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">{featuredProjects[0].title}</h3>
-                  <p className="text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    {featuredProjects[0].description[language]}
-                  </p>
                 </div>
-              </div>
+
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 w-full p-8 pointer-events-none">
+                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="flex gap-2 mb-3 flex-wrap">
+                      {/* Glass Chip */}
+                      <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-white/90 bg-white/10 backdrop-blur-md border border-white/5 rounded-full">
+                        {t.projects.categories[featuredProjects[0].category] || featuredProjects[0].category}
+                      </span>
+                    </div>
+                    <h3 className="text-3xl font-bold text-white mb-2">{featuredProjects[0].title}</h3>
+                    <p className="text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                      {featuredProjects[0].description[language]}
+                    </p>
+                  </div>
+                </div>
+              </SpotlightCard>
             </Link>
           </motion.div>
 
@@ -73,30 +79,35 @@ const FeaturedProjects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="group relative flex-1 h-[200px] lg:h-auto rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
+                className="relative flex-1 h-[200px] lg:h-auto"
             >
-                <Link href={`/projects/${featuredProjects[1].id}`} className="block w-full h-full relative">
-                     {/* Image Placeholder with Zoom Effect */}
-                    <div className="absolute inset-0 overflow-hidden">
-                        <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                            <span className="text-white/30 text-xl font-mono font-bold">300x190</span>
-                        </div>
-                    </div>
+                {/* Backdrop Glow */}
+                <div className="absolute -inset-4 bg-indigo-500/10 rounded-[2rem] blur-2xl opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 -z-10" />
 
-                     {/* Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-
-                     {/* Content */}
-                    <div className="absolute bottom-0 left-0 w-full p-6">
-                         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <div className="flex gap-2 mb-2 flex-wrap">
-                                <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-white/90 bg-white/10 backdrop-blur-md border border-white/5 rounded-full">
-                                {t.projects.categories[featuredProjects[1].category] || featuredProjects[1].category}
-                                </span>
+                <Link href={`/projects/${featuredProjects[1].id}`} className="block w-full h-full">
+                    <SpotlightCard className="h-full">
+                        {/* Image Placeholder with Zoom Effect */}
+                        <div className="absolute inset-0 overflow-hidden">
+                            <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
+                                <span className="text-white/30 text-xl font-mono font-bold">300x190</span>
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-1">{featuredProjects[1].title}</h3>
-                         </div>
-                    </div>
+                        </div>
+
+                        {/* Overlay Gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+
+                        {/* Content */}
+                        <div className="absolute bottom-0 left-0 w-full p-6 pointer-events-none">
+                            <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="flex gap-2 mb-2 flex-wrap">
+                                    <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-white/90 bg-white/10 backdrop-blur-md border border-white/5 rounded-full">
+                                    {t.projects.categories[featuredProjects[1].category] || featuredProjects[1].category}
+                                    </span>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-1">{featuredProjects[1].title}</h3>
+                            </div>
+                        </div>
+                    </SpotlightCard>
                 </Link>
             </motion.div>
 
@@ -106,30 +117,35 @@ const FeaturedProjects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="group relative flex-1 h-[200px] lg:h-auto rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
+                className="relative flex-1 h-[200px] lg:h-auto"
             >
-                <Link href={`/projects/${featuredProjects[2].id}`} className="block w-full h-full relative">
-                     {/* Image Placeholder with Zoom Effect */}
-                    <div className="absolute inset-0 overflow-hidden">
-                         <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                            <span className="text-white/30 text-xl font-mono font-bold">300x190</span>
-                        </div>
-                    </div>
+                {/* Backdrop Glow */}
+                <div className="absolute -inset-4 bg-indigo-500/10 rounded-[2rem] blur-2xl opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 -z-10" />
 
-                    {/* Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-
-                     {/* Content */}
-                    <div className="absolute bottom-0 left-0 w-full p-6">
-                        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                             <div className="flex gap-2 mb-2 flex-wrap">
-                                <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-white/90 bg-white/10 backdrop-blur-md border border-white/5 rounded-full">
-                                {t.projects.categories[featuredProjects[2].category] || featuredProjects[2].category}
-                                </span>
+                <Link href={`/projects/${featuredProjects[2].id}`} className="block w-full h-full">
+                    <SpotlightCard className="h-full">
+                        {/* Image Placeholder with Zoom Effect */}
+                        <div className="absolute inset-0 overflow-hidden">
+                            <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
+                                <span className="text-white/30 text-xl font-mono font-bold">300x190</span>
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-1">{featuredProjects[2].title}</h3>
                         </div>
-                    </div>
+
+                        {/* Overlay Gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+
+                        {/* Content */}
+                        <div className="absolute bottom-0 left-0 w-full p-6 pointer-events-none">
+                            <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="flex gap-2 mb-2 flex-wrap">
+                                    <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-white/90 bg-white/10 backdrop-blur-md border border-white/5 rounded-full">
+                                    {t.projects.categories[featuredProjects[2].category] || featuredProjects[2].category}
+                                    </span>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-1">{featuredProjects[2].title}</h3>
+                            </div>
+                        </div>
+                    </SpotlightCard>
                 </Link>
             </motion.div>
           </div>

@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import SpeedReliability from "@/components/SpeedReliability";
-import TechMarquee from "@/components/TechMarquee";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import { useLoading } from "@/context/LoadingContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -101,10 +100,8 @@ export default function Home() {
       </div>
 
       <div id="content-start">
-        <TechMarquee />
+        <FeaturedProjects />
       </div>
-
-      <FeaturedProjects />
 
       <div id="speed-reliability">
         <SpeedReliability />
