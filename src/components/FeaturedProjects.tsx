@@ -35,7 +35,7 @@ const FeaturedProjects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group relative lg:col-span-2 h-[400px] lg:h-full"
+            className="group relative lg:col-span-2 h-[200px] lg:h-full"
           >
             {/* Backdrop Glow */}
             <div className="absolute -inset-4 bg-indigo-500/20 rounded-[2.5rem] blur-3xl opacity-40 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 group-hover:bg-indigo-500/30 -z-10" />
@@ -52,7 +52,7 @@ const FeaturedProjects = () => {
                 </div>
 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/25 to-transparent pointer-events-none" />
 
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 w-full p-8 pointer-events-none">
@@ -98,7 +98,7 @@ const FeaturedProjects = () => {
                         </div>
 
                         {/* Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/25 to-transparent pointer-events-none" />
 
                         {/* Content */}
                         <div className="absolute bottom-0 left-0 w-full p-6 pointer-events-none">
@@ -138,7 +138,7 @@ const FeaturedProjects = () => {
                         </div>
 
                         {/* Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/25 to-transparent pointer-events-none" />
 
                         {/* Content */}
                         <div className="absolute bottom-0 left-0 w-full p-6 pointer-events-none">

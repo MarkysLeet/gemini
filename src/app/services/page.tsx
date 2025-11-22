@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Check, Zap, Shield, Globe, Smartphone } from "lucide-react";
+import {
+  Check, Zap, Shield, Globe, Smartphone,
+  FileBox, Phone, MapPin, Layers, Bot,
+  Calendar, Languages, MessageSquare, QrCode, Database
+} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ServicesPage() {
@@ -13,19 +17,44 @@ export default function ServicesPage() {
   const plans = [
     {
       ...t.services.plans.start,
-      price: "6,000 ₺ +",
+      price: "7,500 ₺ +",
       recommended: false,
     },
     {
       ...t.services.plans.base,
-      price: "10,000 ₺ +",
+      price: "15,000 ₺ +",
       recommended: true,
     },
     {
       ...t.services.plans.profi,
-      price: "От 50,000 ₺", // Note: Prices are hardcoded in the component for now as they weren't in my translation map, but titles/desc are.
+      price: "30,000 ₺ +",
       recommended: false,
     },
+  ];
+
+  // Define icons for each plan's features
+  // The order must match the order of features in translations.ts
+  const planIcons = [
+    // Plan 1: Start
+    [
+      <FileBox key="f1" className="w-5 h-5 text-purple-500" />, // One-page site
+      <Phone key="f2" className="w-5 h-5 text-purple-500" />,   // WhatsApp Button
+      <MapPin key="f3" className="w-5 h-5 text-purple-500" />,  // Google Maps
+    ],
+    // Plan 2: Base
+    [
+      <Layers key="f1" className="w-5 h-5 text-purple-500" />,    // Multi-page site
+      <Bot key="f2" className="w-5 h-5 text-purple-500" />,       // AI Integration
+      <Calendar key="f3" className="w-5 h-5 text-purple-500" />,  // Online form
+      <Languages key="f4" className="w-5 h-5 text-purple-500" />, // Multilingual
+    ],
+    // Plan 3: Profi
+    [
+      <Check key="f1" className="w-5 h-5 text-purple-500" />,         // All from Business
+      <MessageSquare key="f2" className="w-5 h-5 text-purple-500" />, // AI Chatbot
+      <QrCode key="f3" className="w-5 h-5 text-purple-500" />,        // QR Menu
+      <Database key="f4" className="w-5 h-5 text-purple-500" />,      // CRM Setup
+    ],
   ];
 
   const commonFeaturesData = [
@@ -83,9 +112,9 @@ export default function ServicesPage() {
         animate="visible"
         className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-start mb-24"
       >
-        {plans.map((plan, index) => (
+        {plans.map((plan, planIndex) => (
           <motion.div
-            key={index}
+            key={planIndex}
             variants={itemVariants}
             className={`relative flex flex-col bg-gray-900/50 backdrop-blur-sm border rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 ${
               plan.recommended
@@ -132,7 +161,13 @@ export default function ServicesPage() {
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-gray-300">
-                    <Check className="w-5 h-5 text-purple-500 flex-shrink-0" />
+                    <div className="flex-shrink-0 mt-0.5">
+                        {planIcons[planIndex] && planIcons[planIndex][i] ? (
+                            planIcons[planIndex][i]
+                        ) : (
+                            <Check className="w-5 h-5 text-purple-500" />
+                        )}
+                    </div>
                     <span>{feature}</span>
                   </li>
                 ))}
