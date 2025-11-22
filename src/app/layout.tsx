@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   keywords: ["веб-студия", "разработка сайтов", "дизайн сайтов", "Grozan Studio", "креативная студия"],
   icons: {
-    icon: "https://i.imgur.com/2PponBY.png",
-    shortcut: "https://i.imgur.com/2PponBY.png",
-    apple: "https://i.imgur.com/2PponBY.png",
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
   },
 };
 

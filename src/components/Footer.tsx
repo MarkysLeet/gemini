@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="w-full p-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
       <div className="flex items-center gap-3">
         <Image
-          src="https://i.imgur.com/2PponBY.png"
+          src="/images/logo.png"
           alt="Grozan Studio Logo"
           width={32}
           height={32}

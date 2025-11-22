@@ -63,7 +63,7 @@ const Preloader = () => {
     >
       <motion.div variants={logoVariants} className="mb-6 relative w-24 h-24 md:w-32 md:h-32">
         <Image
-          src="https://i.imgur.com/2PponBY.png"
+          src="/images/logo.png"
           alt="Grozan Studio Logo"
           fill
           className="object-contain"
