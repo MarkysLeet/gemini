@@ -35,10 +35,10 @@ const FeaturedProjects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative lg:col-span-2 h-[400px] lg:h-full"
+            className="group relative lg:col-span-2 h-[400px] lg:h-full"
           >
             {/* Backdrop Glow */}
-            <div className="absolute -inset-4 bg-indigo-500/10 rounded-[2rem] blur-2xl opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 -z-10" />
+            <div className="absolute -inset-4 bg-indigo-500/20 rounded-[2.5rem] blur-3xl opacity-40 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 group-hover:bg-indigo-500/30 -z-10" />
 
             <Link href={`/projects/${featuredProjects[0].id}`} className="block w-full h-full">
               <SpotlightCard className="h-full">
@@ -79,10 +79,10 @@ const FeaturedProjects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative flex-1 h-[200px] lg:h-auto"
+                className="group relative flex-1 h-[200px] lg:h-auto"
             >
                 {/* Backdrop Glow */}
-                <div className="absolute -inset-4 bg-indigo-500/10 rounded-[2rem] blur-2xl opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 -z-10" />
+                <div className="absolute -inset-4 bg-indigo-500/20 rounded-[2.5rem] blur-3xl opacity-40 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 group-hover:bg-indigo-500/30 -z-10" />
 
                 <Link href={`/projects/${featuredProjects[1].id}`} className="block w-full h-full">
                     <SpotlightCard className="h-full">
@@ -117,10 +117,10 @@ const FeaturedProjects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative flex-1 h-[200px] lg:h-auto"
+                className="group relative flex-1 h-[200px] lg:h-auto"
             >
                 {/* Backdrop Glow */}
-                <div className="absolute -inset-4 bg-indigo-500/10 rounded-[2rem] blur-2xl opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 -z-10" />
+                <div className="absolute -inset-4 bg-indigo-500/20 rounded-[2.5rem] blur-3xl opacity-40 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 group-hover:bg-indigo-500/30 -z-10" />
 
                 <Link href={`/projects/${featuredProjects[2].id}`} className="block w-full h-full">
                     <SpotlightCard className="h-full">
