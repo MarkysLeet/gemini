@@ -62,13 +62,8 @@ export default function ProjectsPage() {
               <Link href={`/projects/${project.id}`} className="block h-full active:scale-[0.98] transition-transform duration-200">
                 <div className="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden group hover:border-white/30 transition-colors">
                   <div className="overflow-hidden relative h-64">
-                     {/*
-                        Forced Placeholder as per user request.
-                        The project.coverImage contains the real photo (for homepage),
-                        but here we explicitly render a placeholder.
-                     */}
                     <img
-                      src={`https://placehold.co/600x400/000000/FFFFFF?text=${encodeURIComponent(project.title)}`}
+                      src={project.coverImage}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
