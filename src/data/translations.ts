@@ -199,7 +199,7 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       recommended: "Рекомендуемый выбор",
     },
     projects: {
-      title: "Наши Проекты",
+      title: "Избранные кейсы",
       categories: {
         all: "Все",
         cafe: "Кафе",
