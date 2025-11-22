@@ -4,7 +4,7 @@ export interface LocalizedString {
   tr: string;
 }
 
-export type ProjectCategory = "cafe" | "restaurants" | "salons";
+export type ProjectCategory = "complex" | "cafeRestaurants";
 
 export interface Project {
   id: string;
@@ -20,81 +20,81 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "bean-booster-cafe",
-    title: "BeanBooster",
-    category: "cafe",
-    coverImage: "https://placehold.co/600x400/000000/FFFFFF?text=BeanBooster",
+    id: "aura-memoria",
+    title: "Aura Memoria",
+    category: "complex",
+    coverImage: "/images/aura-memoria.png",
     description: {
-      ru: "Стильный и современный сайт для сети кофеен.",
-      en: "Stylish and modern website for a coffee shop chain.",
-      tr: "Bir kahve dükkanı zinciri için şık ve modern web sitesi."
+      ru: "Будущий комплекс: парк для животных, клиника и мемориальный парк.",
+      en: "Future complex: animal park, veterinary clinic, and memorial park.",
+      tr: "Gelecek kompleks: hayvan parkı, veteriner kliniği ve anıt parkı."
     },
     inspiration: {
-      ru: "Вдохновением послужила атмосфера современных городских кофеен — минимализм, натуральные материалы и акцент на качестве.",
-      en: "Inspired by the atmosphere of modern urban coffee shops — minimalism, natural materials, and a focus on quality.",
-      tr: "Modern kentsel kahve dükkanlarının atmosferinden ilham alındı — minimalizm, doğal malzemeler ve kaliteye odaklanma."
+      ru: "Идея создания пространства, где забота о питомцах продолжается вечно.",
+      en: "The idea of creating a space where care for pets continues forever.",
+      tr: "Evcil hayvan bakımının sonsuza dek sürdüğü bir alan yaratma fikri."
     },
-    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=BeanBooster+Logo",
+    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Aura+Logo",
     images: [
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Screenshot+1",
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Screenshot+2",
+        "https://placehold.co/1200x800/000000/FFFFFF?text=Park+View",
+        "https://placehold.co/1200x800/000000/FFFFFF?text=Clinic+Interior",
     ],
     fullDescription: {
-      ru: "Для BeanBooster мы разработали сайт, который отражает их философию: лучший кофе и уютная атмосфера. Мы создали удобное меню, галерею интерьеров и систему онлайн-заказов, интегрированную с их внутренней системой.",
-      en: "For BeanBooster, we developed a site that reflects their philosophy: the best coffee and a cozy atmosphere. We created a convenient menu, interior gallery, and online ordering system integrated with their internal system.",
-      tr: "BeanBooster için felsefelerini yansıtan bir site geliştirdik: en iyi kahve ve rahat bir atmosfer. Kullanışlı bir menü, iç mekan galerisi ve iç sistemleriyle entegre edilmiş bir çevrimiçi sipariş sistemi oluşturduk."
+      ru: "Aura Memoria — это уникальный проект, объединяющий в себе Парк для животных с уютной кафетерией для владельцев, современную ветеринарную клинику и мемориальный парк. Это место, где технологии встречаются с заботой и памятью.",
+      en: "Aura Memoria is a unique project combining an Animal Park with a cozy cafeteria for owners, a modern veterinary clinic, and a memorial park. This is a place where technology meets care and memory.",
+      tr: "Aura Memoria, hayvan sahipleri için rahat bir kafeteryaya sahip Hayvan Parkı, modern bir veteriner kliniği ve anıt parkını birleştiren benzersiz bir projedir. Burası teknolojinin bakım ve hafızayla buluştuğu yerdir."
     }
   },
   {
-    id: "elegance-salon",
-    title: "Elegance",
-    category: "salons",
-    coverImage: "https://placehold.co/600x400/000000/FFFFFF?text=Elegance",
+    id: "black-island",
+    title: "Black Island",
+    category: "cafeRestaurants",
+    coverImage: "/images/black-island.png",
     description: {
-      ru: "Изящный сайт для премиального салона красоты.",
-      en: "Elegant website for a premium beauty salon.",
-      tr: "Premium bir güzellik salonu için zarif web sitesi."
+      ru: "Кафе-ресторан русской, европейской и восточной кухни в современном стиле.",
+      en: "Cafe-restaurant of Russian, European, and Eastern cuisine in modern style.",
+      tr: "Modern tarzda Rus, Avrupa ve Doğu mutfağından kafe-restoran."
     },
     inspiration: {
-      ru: "Мы черпали вдохновение в эстетике люксовых брендов и минималистичном дизайне, чтобы подчеркнуть эксклюзивность услуг салона.",
-      en: "We drew inspiration from the aesthetics of luxury brands and minimalist design to emphasize the exclusivity of the salon's services.",
-      tr: "Salonun hizmetlerinin ayrıcalığını vurgulamak için lüks markaların estetiğinden ve minimalist tasarımdan ilham aldık."
+      ru: "Современный стиль с элементами лаунж-атмосферы и кальяном.",
+      en: "Modern style with lounge atmosphere elements and hookah.",
+      tr: "Lounge atmosferi unsurları ve nargile ile modern tarz."
     },
-    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Elegance+Logo",
+    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Black+Island",
     images: [
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Homepage",
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Services",
+        "https://placehold.co/1200x800/000000/FFFFFF?text=Interior",
+        "https://placehold.co/1200x800/000000/FFFFFF?text=Dishes",
     ],
     fullDescription: {
-      ru: "Сайт для салона Elegance — это сочетание стиля и функциональности. Мы реализовали удобную онлайн-запись, подробные страницы услуг с ценами и портфолио мастеров, что позволило увеличить количество онлайн-бронирований на 40%.",
-      en: "The website for Elegance salon is a combination of style and functionality. We implemented convenient online booking, detailed service pages with prices, and master portfolios, which increased online bookings by 40%.",
-      tr: "Elegance salonu için web sitesi, stil ve işlevselliğin birleşimidir. Uygun çevrimiçi rezervasyon, fiyatlarla ayrıntılı hizmet sayfaları ve usta portföyleri uyguladık, bu da çevrimiçi rezervasyonları %40 artırdı."
+      ru: "Black Island — это гастрономическое путешествие. Мы объединили лучшие традиции русской, европейской и восточной кухни в одном месте. Стильный интерьер, кальянная зона и разнообразное меню создают идеальную атмосферу для отдыха.",
+      en: "Black Island is a gastronomic journey. We have combined the best traditions of Russian, European, and Eastern cuisine in one place. Stylish interior, hookah zone, and a diverse menu create the perfect atmosphere for relaxation.",
+      tr: "Black Island bir gastronomi yolculuğudur. Rus, Avrupa ve Doğu mutfağının en iyi geleneklerini tek bir yerde birleştirdik. Şık iç mekan, nargile alanı ve çeşitli menü, dinlenmek için mükemmel bir atmosfer yaratır."
     }
   },
   {
-    id: "gourmet-place-restaurant",
-    title: "Gourmet Place",
-    category: "restaurants",
-    coverImage: "https://placehold.co/600x400/000000/FFFFFF?text=Gourmet+Place",
+    id: "carre-caffe",
+    title: "Carre Caffe",
+    category: "cafeRestaurants",
+    coverImage: "/images/carre-caffe.png",
     description: {
-      ru: "Аппетитный сайт для ресторана высокой кухни.",
-      en: "Appetizing website for a fine dining restaurant.",
-      tr: "Lüks bir restoran için iştah açıcı web sitesi."
+      ru: "Кафе традиционной русской кухни в Манавгате, Турция.",
+      en: "Cafe of traditional Russian cuisine in Manavgat, Turkey.",
+      tr: "Manavgat, Türkiye'de geleneksel Rus mutfağı kafesi."
     },
     inspiration: {
-      ru: "Дизайн сайта вдохновлен самим искусством кулинарии: мы использовали 'вкусные' цвета, элегантную типографику и качественные фотографии блюд.",
-      en: "The site design is inspired by the art of cooking itself: we used 'tasty' colors, elegant typography, and high-quality food photos.",
-      tr: "Site tasarımı, yemek pişirme sanatının kendisinden esinlenmiştir: 'lezzetli' renkler, zarif tipografi ve yüksek kaliteli yemek fotoğrafları kullandık."
+      ru: "Уют и тепло домашней русской кухни на берегу Средиземноморья.",
+      en: "Comfort and warmth of homemade Russian cuisine on the Mediterranean coast.",
+      tr: "Akdeniz kıyısında ev yapımı Rus mutfağının konforu ve sıcaklığı."
     },
-    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Gourmet+Place+Logo",
+    clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Carre+Caffe",
     images: [
         "https://placehold.co/1200x800/000000/FFFFFF?text=Menu",
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Gallery",
+        "https://placehold.co/1200x800/000000/FFFFFF?text=Atmosphere",
     ],
     fullDescription: {
-      ru: "Основной задачей было передать атмосферу ресторана Gourmet Place. Мы разработали интерактивное меню, фотогалерею, которая погружает в атмосферу заведения, и простую форму для бронирования столиков.",
-      en: "The main task was to convey the atmosphere of the Gourmet Place restaurant. We developed an interactive menu, a photo gallery that immerses you in the atmosphere of the establishment, and a simple table reservation form.",
-      tr: "Asıl görev, Gourmet Place restoranının atmosferini iletmekti. İnteraktif bir menü, sizi mekanın atmosferine sokan bir fotoğraf galerisi ve basit bir masa rezervasyon formu geliştirdik."
+      ru: "Carre Caffe привносит вкус родины в сердце Манавгата. Традиционные рецепты, свежие ингредиенты и гостеприимство делают это место уникальным уголком русской культуры в Турции.",
+      en: "Carre Caffe brings the taste of home to the heart of Manavgat. Traditional recipes, fresh ingredients, and hospitality make this place a unique corner of Russian culture in Turkey.",
+      tr: "Carre Caffe, memleket tadını Manavgat'ın kalbine getiriyor. Geleneksel tarifler, taze malzemeler ve misafirperverlik, burayı Türkiye'de Rus kültürünün eşsiz bir köşesi haline getiriyor."
     }
   }
 ];
