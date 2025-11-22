@@ -35,7 +35,7 @@ const FeaturedProjects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group relative lg:col-span-2 h-[400px] lg:h-full"
+            className="group relative lg:col-span-2 h-[200px] lg:h-full"
           >
             {/* Backdrop Glow */}
             <div className="absolute -inset-4 bg-indigo-500/20 rounded-[2.5rem] blur-3xl opacity-40 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105 group-hover:bg-indigo-500/30 -z-10" />
@@ -52,19 +52,19 @@ const FeaturedProjects = () => {
                 </div>
 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/25 to-transparent pointer-events-none" />
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 w-full p-8 pointer-events-none">
+                <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 pointer-events-none">
                   <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className="flex gap-2 mb-3 flex-wrap">
+                    <div className="flex gap-2 mb-2 lg:mb-3 flex-wrap">
                       {/* Glass Chip */}
                       <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-white/90 bg-white/10 backdrop-blur-md border border-white/5 rounded-full">
                         {t.projects.categories[featuredProjects[0].category] || featuredProjects[0].category}
                       </span>
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-2">{featuredProjects[0].title}</h3>
-                    <p className="text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <h3 className="text-xl lg:text-3xl font-bold text-white mb-1 lg:mb-2">{featuredProjects[0].title}</h3>
+                    <p className="text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 hidden lg:block">
                       {featuredProjects[0].description[language]}
                     </p>
                   </div>
@@ -98,7 +98,7 @@ const FeaturedProjects = () => {
                         </div>
 
                         {/* Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/25 to-transparent pointer-events-none" />
 
                         {/* Content */}
                         <div className="absolute bottom-0 left-0 w-full p-6 pointer-events-none">
@@ -138,7 +138,7 @@ const FeaturedProjects = () => {
                         </div>
 
                         {/* Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/25 to-transparent pointer-events-none" />
 
                         {/* Content */}
                         <div className="absolute bottom-0 left-0 w-full p-6 pointer-events-none">
