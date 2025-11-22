@@ -50,7 +50,7 @@ export default function Header() {
       <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 bg-black/30 backdrop-blur-md border-b border-white/10">
         <Link href="/" className="flex items-center gap-3 z-50 relative" onClick={() => setIsOpen(false)}>
           <Image
-            src="https://i.imgur.com/2PponBY.png"
+            src="/images/logo.png"
             alt="Grozan Studio Logo"
             width={48}
             height={48}

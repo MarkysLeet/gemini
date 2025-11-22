@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import SpeedReliability from "@/components/SpeedReliability";
+import TechMarquee from "@/components/TechMarquee";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import { useLoading } from "@/context/LoadingContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAi } from "@/context/AiContext";
@@ -15,7 +17,10 @@ export default function Home() {
   const { openAiModal } = useAi();
 
   const handleScrollDown = () => {
-    const nextSection = document.getElementById("speed-reliability");
+    // Determine where to scroll. If we have the marquee/featured projects, we scroll there.
+    // But traditionally "scroll down" goes to the next immediate visual section.
+    // Let's scroll to the "content-start" anchor which we'll place after Hero.
+    const nextSection = document.getElementById("content-start");
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -31,7 +36,7 @@ export default function Home() {
           className="relative w-24 h-24 md:w-32 md:h-32 mb-6"
         >
           <Image
-            src="https://i.imgur.com/2PponBY.png"
+            src="/images/logo.png"
             alt="Grozan Studio Logo"
             fill
             className="object-contain"
@@ -94,6 +99,12 @@ export default function Home() {
           </>
         )}
       </div>
+
+      <div id="content-start">
+        <TechMarquee />
+      </div>
+
+      <FeaturedProjects />
 
       <div id="speed-reliability">
         <SpeedReliability />
