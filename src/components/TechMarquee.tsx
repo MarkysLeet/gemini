@@ -16,7 +16,7 @@ const TechMarquee = () => {
   const marqueeItems = [...technologies, ...technologies, ...technologies, ...technologies];
 
   return (
-    <div className="w-full overflow-hidden py-8 bg-black/50 backdrop-blur-sm border-y border-white/5">
+    <div className="w-full overflow-hidden py-3 bg-black/50 backdrop-blur-sm border-y border-white/5">
       <div className="relative flex items-center">
         {/* Left Fade Gradient */}
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
