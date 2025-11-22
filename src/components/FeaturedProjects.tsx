@@ -17,8 +17,8 @@ const FeaturedProjects = () => {
   if (featuredProjects.length < 3) return null;
 
   return (
-    <section className="bg-black relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-24">
+    <section className="">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-24">
         <ScrollReveal>
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold uppercase tracking-wider text-white/90">
@@ -27,20 +27,20 @@ const FeaturedProjects = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:h-[550px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:h-[400px]">
           {/* Main Card - Large (Spans 2 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group relative lg:col-span-2 h-full rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
+            className="group relative lg:col-span-2 h-[400px] lg:h-full rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
           >
             <Link href={`/projects/${featuredProjects[0].id}`} className="block w-full h-full relative">
               {/* Image Placeholder with Zoom Effect */}
               <div className="absolute inset-0 overflow-hidden">
                 <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                   <span className="text-white/30 text-2xl font-mono font-bold">800x550</span>
+                   <span className="text-white/30 text-2xl font-mono font-bold">650x400</span>
                 </div>
               </div>
 
@@ -66,20 +66,20 @@ const FeaturedProjects = () => {
           </motion.div>
 
           {/* Right Column - Two Small Cards */}
-          <div className="lg:col-span-1 flex flex-col gap-6 h-full">
+          <div className="lg:col-span-1 flex flex-col gap-6 h-full min-h-[400px] lg:min-h-0">
             {/* Second Item */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="group relative flex-1 rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
+                className="group relative flex-1 h-[200px] lg:h-auto rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
             >
                 <Link href={`/projects/${featuredProjects[1].id}`} className="block w-full h-full relative">
                      {/* Image Placeholder with Zoom Effect */}
                     <div className="absolute inset-0 overflow-hidden">
                         <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                            <span className="text-white/30 text-xl font-mono font-bold">400x265</span>
+                            <span className="text-white/30 text-xl font-mono font-bold">300x190</span>
                         </div>
                     </div>
 
@@ -106,13 +106,13 @@ const FeaturedProjects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="group relative flex-1 rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
+                className="group relative flex-1 h-[200px] lg:h-auto rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f0f] hover:border-white/25 transition-colors duration-500"
             >
                 <Link href={`/projects/${featuredProjects[2].id}`} className="block w-full h-full relative">
                      {/* Image Placeholder with Zoom Effect */}
                     <div className="absolute inset-0 overflow-hidden">
                          <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                            <span className="text-white/30 text-xl font-mono font-bold">400x265</span>
+                            <span className="text-white/30 text-xl font-mono font-bold">300x190</span>
                         </div>
                     </div>
 
