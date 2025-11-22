@@ -42,11 +42,13 @@ const FeaturedProjects = () => {
 
             <Link href={`/projects/${featuredProjects[0].id}`} className="block w-full h-full">
               <SpotlightCard className="h-full">
-                {/* Image Placeholder with Zoom Effect */}
+                {/* Image */}
                 <div className="absolute inset-0 overflow-hidden">
-                  <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                    <span className="text-white/30 text-2xl font-mono font-bold">650x400</span>
-                  </div>
+                  <img
+                    src={featuredProjects[0].coverImage}
+                    alt={featuredProjects[0].title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
                 </div>
 
                 {/* Overlay Gradient */}
@@ -86,11 +88,13 @@ const FeaturedProjects = () => {
 
                 <Link href={`/projects/${featuredProjects[1].id}`} className="block w-full h-full">
                     <SpotlightCard className="h-full">
-                        {/* Image Placeholder with Zoom Effect */}
+                        {/* Image */}
                         <div className="absolute inset-0 overflow-hidden">
-                            <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                                <span className="text-white/30 text-xl font-mono font-bold">300x190</span>
-                            </div>
+                             <img
+                                src={featuredProjects[1].coverImage}
+                                alt={featuredProjects[1].title}
+                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                            />
                         </div>
 
                         {/* Overlay Gradient */}
@@ -124,11 +128,13 @@ const FeaturedProjects = () => {
 
                 <Link href={`/projects/${featuredProjects[2].id}`} className="block w-full h-full">
                     <SpotlightCard className="h-full">
-                        {/* Image Placeholder with Zoom Effect */}
+                        {/* Image */}
                         <div className="absolute inset-0 overflow-hidden">
-                            <div className="w-full h-full bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center">
-                                <span className="text-white/30 text-xl font-mono font-bold">300x190</span>
-                            </div>
+                             <img
+                                src={featuredProjects[2].coverImage}
+                                alt={featuredProjects[2].title}
+                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                            />
                         </div>
 
                         {/* Overlay Gradient */}

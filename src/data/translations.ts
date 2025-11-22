@@ -42,9 +42,8 @@ export interface Translation {
     title: string;
     categories: {
       all: string;
-      cafe: string;
-      restaurants: string;
-      salons: string;
+      complex: string;
+      cafeRestaurants: string;
     };
     back: string;
     viewProject: string;
@@ -202,9 +201,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       title: "Избранные кейсы",
       categories: {
         all: "Все",
-        cafe: "Кафе",
-        restaurants: "Рестораны",
-        salons: "Салоны",
+        complex: "Комплекс",
+        cafeRestaurants: "Кафе-Рестораны",
       },
       back: "Назад к проектам",
       viewProject: "Смотреть проект",
@@ -350,9 +348,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       title: "Our Projects",
       categories: {
         all: "All",
-        cafe: "Cafe",
-        restaurants: "Restaurants",
-        salons: "Salons",
+        complex: "Complex",
+        cafeRestaurants: "Cafe & Restaurants",
       },
       back: "Back to Projects",
       viewProject: "View Project",
@@ -498,9 +495,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       title: "Projelerimiz",
       categories: {
         all: "Tümü",
-        cafe: "Kafe",
-        restaurants: "Restoranlar",
-        salons: "Salonlar",
+        complex: "Kompleks",
+        cafeRestaurants: "Kafe ve Restoranlar",
       },
       back: "Projelere Dön",
       viewProject: "Projeyi Görüntüle",
