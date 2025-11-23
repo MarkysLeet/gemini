@@ -75,9 +75,10 @@ export const ContentFeature: React.FC<ContentFeatureProps> = ({ block }) => {
                         dimensions={block.image.dimensions}
                         url={block.image.url}
                         className="shadow-2xl border-white/5 transition-transform duration-500 group-hover:scale-105"
+                        showOverlayOnHover={false}
                     />
                      {block.image.url && (
-                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                         <div className="absolute inset-0 bg-transparent group-hover:bg-black/5 group-hover:backdrop-blur-[2px] transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                             <div className="bg-black/50 p-3 rounded-full backdrop-blur-sm">
                                 <ZoomIn className="w-6 h-6 text-white" />
                             </div>
