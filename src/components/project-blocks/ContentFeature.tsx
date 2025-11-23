@@ -59,11 +59,22 @@ export const ContentFeature: React.FC<ContentFeatureProps> = ({ block }) => {
                viewport={{ once: true }}
                transition={{ duration: 0.6, delay: 0.2 }}
              >
-                <ImagePlaceholder
-                    label={block.image.label}
-                    dimensions={block.image.dimensions}
-                    className="shadow-2xl border-white/5"
-                />
+                {block.image.url ? (
+                  <div className="relative rounded-xl overflow-hidden shadow-2xl border border-white/5">
+                    <img
+                      src={block.image.url}
+                      alt={block.image.label}
+                      className="w-full h-auto object-cover"
+                    />
+                    {/* Optional: Simple dimension label overlay if desired for debugging, but usually cleaner without */}
+                  </div>
+                ) : (
+                  <ImagePlaceholder
+                      label={block.image.label}
+                      dimensions={block.image.dimensions}
+                      className="shadow-2xl border-white/5"
+                  />
+                )}
              </motion.div>
           </div>
         )}

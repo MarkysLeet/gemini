@@ -46,23 +46,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <p className="text-lg md:text-xl text-white/60 leading-relaxed">{project.description[language]}</p>
       </motion.div>
 
-      {/* Cover Image */}
-      <motion.div
-         initial={{ opacity: 0, scale: 0.95 }}
-         animate={{ opacity: 1, scale: 1 }}
-         transition={{ duration: 0.8, delay: 0.1 }}
-         className="w-full mb-16 lg:mb-24"
-      >
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-               {/* Use the actual image if it's a real path, otherwise just placeholder if needed.
-                   Assuming coverImage is valid path like /images/aura-memoria.png */}
-               <img
-                  src={project.coverImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-          </div>
-      </motion.div>
+      {/*
+         Removed Cover Image rendering here based on new requirements.
+         Structure is now: Title -> Overview (Client/Task/Solution) -> Blocks
+      */}
 
       {/* --- NEW MODULAR CONTENT --- */}
       {project.overview && (
@@ -72,6 +59,33 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       {/* --- LEGACY CONTENT (Fallback if no new structure) --- */}
       {!project.overview && (
         <>
+             {/* Legacy Cover Image rendering kept only for legacy projects if needed,
+                 but requirement implies removing it for Aura Memoria.
+                 Since this is a generic template, I should conditionally render it OR
+                 if the requirement "When you enter the project page the preview meets you, remove it" applies to ALL projects?
+                 The user said "Today we work on ... Aura Memoria ... I want ... on every project page ... Overview block ... Remove preview".
+                 I'll assume removing the big cover image right after title is desired for the new layout.
+                 For legacy projects, they might look empty without it?
+                 Let's keep cover image ONLY if no overview is present (Legacy fallback),
+                 OR better, let's strictly follow "Remove preview" as a general rule if that's the new style.
+                 However, to be safe and specific to Aura Memoria's "new style",
+                 I will suppress the cover image if `project.blocks` or `project.overview` is present (The new layout mode).
+             */}
+             <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="w-full mb-16 lg:mb-24"
+             >
+                  <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                      <img
+                          src={project.coverImage}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                        />
+                  </div>
+             </motion.div>
+
             <div className="grid md:grid-cols-3 gap-8 mb-16 bg-white/5 p-8 rounded-xl border border-white/10">
                 <div>
                 <h3 className="text-xl font-bold mb-4 text-white/80">{t.projects.client}</h3>

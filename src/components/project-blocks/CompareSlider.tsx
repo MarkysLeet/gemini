@@ -70,36 +70,53 @@ export const CompareSlider: React.FC<CompareSliderProps> = ({ block }) => {
         onClick={handleMove} // Allow click to jump
       >
         {/* Right Image (Background - Dark Mode usually) */}
-        <div className="absolute inset-0 bg-neutral-900 flex items-center justify-center">
-            {/* We use the placeholder here, but in real app it would be an <img> */}
-            <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a0a]">
-                <ImagePlaceholder
-                    label={block.rightImage.label}
-                    dimensions={block.rightImage.dimensions}
-                    aspectRatio="h-full w-full"
-                    className="!bg-transparent !border-0"
-                />
-            </div>
+        <div className="absolute inset-0 bg-neutral-900 flex items-center justify-center select-none">
+            {block.rightImage.url ? (
+               <img
+                 src={block.rightImage.url}
+                 alt={block.rightImage.label}
+                 className="w-full h-full object-cover"
+                 draggable={false}
+               />
+            ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a0a]">
+                    <ImagePlaceholder
+                        label={block.rightImage.label}
+                        dimensions={block.rightImage.dimensions}
+                        aspectRatio="h-full w-full"
+                        className="!bg-transparent !border-0"
+                    />
+                </div>
+            )}
         </div>
 
         {/* Left Image (Foreground - Light Mode) - Clip Path controlled */}
         <div
-            className="absolute inset-0 bg-neutral-100 overflow-hidden"
+            className="absolute inset-0 bg-neutral-100 overflow-hidden select-none"
             style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
-             <div className="absolute inset-0 flex items-center justify-center bg-[#f5f5f5]">
-                <ImagePlaceholder
-                    label={block.leftImage.label}
-                    dimensions={block.leftImage.dimensions}
-                    aspectRatio="h-full w-full"
-                    className="!bg-transparent !border-0 text-black/80"
-                />
-                 {/* Hack: Force text color to black for light mode side placeholder */}
-                <style jsx>{`
-                    .bg-\[\#f5f5f5\] p { color: #000 !important; }
-                    .bg-\[\#f5f5f5\] svg { color: #000 !important; }
-                `}</style>
-            </div>
+            {block.leftImage.url ? (
+               <img
+                 src={block.leftImage.url}
+                 alt={block.leftImage.label}
+                 className="w-full h-full object-cover"
+                 draggable={false}
+               />
+            ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-[#f5f5f5]">
+                    <ImagePlaceholder
+                        label={block.leftImage.label}
+                        dimensions={block.leftImage.dimensions}
+                        aspectRatio="h-full w-full"
+                        className="!bg-transparent !border-0 text-black/80"
+                    />
+                    {/* Hack: Force text color to black for light mode side placeholder */}
+                    <style jsx>{`
+                        .bg-\[\#f5f5f5\] p { color: #000 !important; }
+                        .bg-\[\#f5f5f5\] svg { color: #000 !important; }
+                    `}</style>
+                </div>
+            )}
         </div>
 
         {/* Slider Handle */}
@@ -120,10 +137,10 @@ export const CompareSlider: React.FC<CompareSliderProps> = ({ block }) => {
         </div>
 
         {/* Labels overlay */}
-        <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs text-white/90 font-medium">
+        <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs text-white/90 font-medium pointer-events-none">
             {block.leftImage.label}
         </div>
-        <div className="absolute top-4 right-4 z-10 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs text-white/90 font-medium">
+        <div className="absolute top-4 right-4 z-10 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs text-white/90 font-medium pointer-events-none">
             {block.rightImage.label}
         </div>
       </div>

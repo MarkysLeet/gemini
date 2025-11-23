@@ -130,11 +130,13 @@ export const projects: Project[] = [
         },
         leftImage: {
           label: "Светлая тема (Light Mode)",
-          dimensions: "1920x1080" // Desktop screenshot size usually
+          dimensions: "1920x1080",
+          url: "/images/am-white.png"
         },
         rightImage: {
           label: "Темная тема (Dark Mode)",
-          dimensions: "1920x1080"
+          dimensions: "1920x1080",
+          url: "/images/am-dark.png"
         }
       },
       {
@@ -153,7 +155,8 @@ export const projects: Project[] = [
         image: {
           label: "Скриншот Личного кабинета и системы записей",
           dimensions: "1200x800",
-          position: "right"
+          position: "right",
+          url: "/images/am-lk.png"
         }
       },
       {
@@ -172,7 +175,8 @@ export const projects: Project[] = [
         image: {
           label: "Админ-панель (Таблица записей + Фильтры)",
           dimensions: "1200x800",
-          position: "bottom"
+          position: "bottom",
+          url: "/images/am-admin-panel.png"
         }
       },
       {
@@ -190,8 +194,9 @@ export const projects: Project[] = [
         },
         image: {
           label: "Страница Мемориального парка",
-          dimensions: "800x600",
-          position: "left"
+          dimensions: "1200x600",
+          position: "left",
+          url: "/images/am-park.png"
         }
       }
     ]
