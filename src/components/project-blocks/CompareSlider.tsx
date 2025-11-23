@@ -76,8 +76,10 @@ export const CompareSlider: React.FC<CompareSliderProps> = ({ block }) => {
                 <ImagePlaceholder
                     label={block.rightImage.label}
                     dimensions={block.rightImage.dimensions}
+                    url={block.rightImage.url}
                     aspectRatio="h-full w-full"
                     className="!bg-transparent !border-0"
+                    showOverlayOnHover={false}
                 />
             </div>
         </div>
@@ -91,8 +93,10 @@ export const CompareSlider: React.FC<CompareSliderProps> = ({ block }) => {
                 <ImagePlaceholder
                     label={block.leftImage.label}
                     dimensions={block.leftImage.dimensions}
+                    url={block.leftImage.url}
                     aspectRatio="h-full w-full"
                     className="!bg-transparent !border-0 text-black/80"
+                    showOverlayOnHover={false}
                 />
                  {/* Hack: Force text color to black for light mode side placeholder */}
                 <style jsx>{`

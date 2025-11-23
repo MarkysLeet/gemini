@@ -47,6 +47,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       </motion.div>
 
       {/* Cover Image */}
+      {/* REMOVED PER REQUEST: The cover image is now only used for the card display, not on the detail page.
       <motion.div
          initial={{ opacity: 0, scale: 0.95 }}
          animate={{ opacity: 1, scale: 1 }}
@@ -54,8 +55,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
          className="w-full mb-16 lg:mb-24"
       >
           <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-               {/* Use the actual image if it's a real path, otherwise just placeholder if needed.
-                   Assuming coverImage is valid path like /images/aura-memoria.png */}
                <img
                   src={project.coverImage}
                   alt={project.title}
@@ -63,6 +62,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 />
           </div>
       </motion.div>
+      */}
 
       {/* --- NEW MODULAR CONTENT --- */}
       {project.overview && (
