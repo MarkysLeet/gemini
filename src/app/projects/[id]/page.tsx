@@ -4,7 +4,7 @@ import { projects, Project } from "@/data/projects";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronDown } from "lucide-react";
 import { ProjectOverviewBlock } from "@/components/project-blocks/ProjectOverviewBlock";
 import { ContentBlockRenderer } from "@/components/project-blocks/ContentBlockRenderer";
 
@@ -27,11 +27,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-24 lg:py-32">
-        <div className="mb-12">
-             <Link href="/projects" className="inline-flex items-center text-white/50 hover:text-white transition-colors group">
-                 <ChevronLeft className="w-5 h-5 mr-1 group-hover:-translate-x-1 transition-transform" />
-                 {t.projects.back}
+    <div className="container mx-auto px-4 pt-24 pb-24 lg:pt-28 lg:pb-32">
+        <div className="mb-8">
+             <Link href="/projects" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white transition-all duration-300 group backdrop-blur-sm">
+                 <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                 <span className="text-sm font-medium">{t.projects.back}</span>
              </Link>
         </div>
 
@@ -66,7 +66,24 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* --- NEW MODULAR CONTENT --- */}
       {project.overview && (
-        <ProjectOverviewBlock overview={project.overview} />
+        <>
+          <ProjectOverviewBlock overview={project.overview} />
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            className="flex justify-center mt-8 mb-16"
+          >
+             <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="text-white/30"
+              >
+                <ChevronDown className="w-8 h-8" />
+              </motion.div>
+          </motion.div>
+        </>
       )}
 
       {/* --- LEGACY CONTENT (Fallback if no new structure) --- */}
