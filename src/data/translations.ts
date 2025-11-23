@@ -253,19 +253,19 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       title: "Процесс работы",
       steps: [
         {
-          title: "Briefing & Analysis (init)",
+          title: "Брифинг и Анализ",
           description: "Мы не просто слушаем, мы изучаем ваш бизнес, конкурентов и ЦА.",
         },
         {
-          title: "UI/UX Design (render)",
+          title: "UI/UX Дизайн",
           description: "Создаем прототипы и дизайн-макеты. Вы видите, как сайт будет выглядеть до написания кода.",
         },
         {
-          title: "Development (build)",
+          title: "Разработка",
           description: "Пишем чистый код на Next.js. Настраиваем SEO.",
         },
         {
-          title: "Launch & Support",
+          title: "Запуск и Поддержка",
           description: "Перенос на хостинг, подключение домена, обучение управлению.",
         },
       ]
@@ -415,15 +415,15 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       title: "Work Process",
       steps: [
         {
-          title: "Briefing & Analysis (init)",
+          title: "Briefing & Analysis",
           description: "We don't just listen; we study your business, competitors, and target audience.",
         },
         {
-          title: "UI/UX Design (render)",
+          title: "UI/UX Design",
           description: "We create prototypes and design mockups. You see how the site will look before code is written.",
         },
         {
-          title: "Development (build)",
+          title: "Development",
           description: "We write clean code on Next.js. We configure SEO.",
         },
         {
@@ -577,19 +577,19 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       title: "Çalışma Süreci",
       steps: [
         {
-          title: "Briefing & Analysis (init)",
+          title: "Bilgilendirme ve Analiz",
           description: "Sadece dinlemiyoruz; işinizi, rakiplerinizi ve hedef kitlenizi inceliyoruz.",
         },
         {
-          title: "UI/UX Design (render)",
+          title: "UI/UX Tasarım",
           description: "Prototipler ve tasarım maketleri oluşturuyoruz. Kod yazılmadan önce sitenin nasıl görüneceğini görürsünüz.",
         },
         {
-          title: "Development (build)",
+          title: "Geliştirme",
           description: "Next.js ile temiz kod yazıyoruz. SEO ayarlarını yapıyoruz.",
         },
         {
-          title: "Launch & Support",
+          title: "Başlatma ve Destek",
           description: "Hosting transferi, domain bağlantısı, yönetim eğitimi.",
         },
       ]
