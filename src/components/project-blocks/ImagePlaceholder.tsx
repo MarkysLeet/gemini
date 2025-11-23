@@ -5,14 +5,39 @@ interface ImagePlaceholderProps {
   dimensions: string;
   className?: string;
   aspectRatio?: string; // e.g. "aspect-video" or "aspect-[4/3]"
+  url?: string;
+  showOverlayOnHover?: boolean;
 }
 
 export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   label,
   dimensions,
   className = "",
-  aspectRatio = "aspect-video"
+  aspectRatio = "aspect-video",
+  url,
+  showOverlayOnHover = true
 }) => {
+  if (url) {
+    return (
+      <div className={`relative w-full ${aspectRatio} bg-white/5 border border-white/10 rounded-xl overflow-hidden group ${className}`}>
+        <img
+          src={url}
+          alt={label}
+          className="w-full h-full object-cover"
+        />
+
+        {showOverlayOnHover && (
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-center pb-8">
+            <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 px-6 text-center">
+              <p className="text-lg font-medium text-white/90">{label}</p>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Fallback Placeholder UI
   return (
     <div className={`relative w-full ${aspectRatio} bg-white/5 border border-white/10 rounded-xl overflow-hidden flex flex-col items-center justify-center p-6 text-center group ${className}`}>
       {/* Grid Pattern Background */}

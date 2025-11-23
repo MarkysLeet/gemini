@@ -62,6 +62,7 @@ export const ContentFeature: React.FC<ContentFeatureProps> = ({ block }) => {
                 <ImagePlaceholder
                     label={block.image.label}
                     dimensions={block.image.dimensions}
+                    url={block.image.url}
                     className="shadow-2xl border-white/5"
                 />
              </motion.div>
