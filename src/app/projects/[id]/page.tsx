@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { projects, Project } from "@/data/projects";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
@@ -27,8 +28,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 pt-24 pb-24 lg:pt-28 lg:pb-32">
-        <div className="mb-8">
+    <div className="container mx-auto px-4 pt-20 pb-24 lg:pt-24 lg:pb-32">
+        <div className="mb-4">
              <Link href="/projects" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white transition-all duration-300 group backdrop-blur-sm">
                  <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                  <span className="text-sm font-medium">{t.projects.back}</span>
@@ -117,9 +118,15 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       {/* --- BLOCKS RENDERER --- */}
-      <div className="space-y-12 lg:space-y-24">
-        {project.blocks?.map((block) => (
-            <ContentBlockRenderer key={block.id} block={block} />
+      <div className="space-y-12 lg:space-y-16">
+        {project.blocks?.map((block, index) => (
+          <React.Fragment key={block.id}>
+             {/* Divider between blocks (except the first one) */}
+            {index > 0 && (
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-12" />
+            )}
+            <ContentBlockRenderer block={block} />
+          </React.Fragment>
         ))}
       </div>
 
