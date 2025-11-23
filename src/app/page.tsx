@@ -5,6 +5,7 @@ import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import SpeedReliability from "@/components/SpeedReliability";
 import FeaturedProjects from "@/components/FeaturedProjects";
+import WorkProcess from "@/components/WorkProcess";
 import { useLoading } from "@/context/LoadingContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAi } from "@/context/AiContext";
@@ -105,6 +106,10 @@ export default function Home() {
 
       <div id="speed-reliability">
         <SpeedReliability />
+      </div>
+
+      <div id="work-process">
+         <WorkProcess />
       </div>
 
       <div id="about">
