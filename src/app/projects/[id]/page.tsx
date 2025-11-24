@@ -8,6 +8,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronDown } from "lucide-react";
 import { ProjectOverviewBlock } from "@/components/project-blocks/ProjectOverviewBlock";
 import { ContentBlockRenderer } from "@/components/project-blocks/ContentBlockRenderer";
+import TableOfContents from "@/components/TableOfContents";
 
 type ProjectPageProps = {
   params: {
@@ -27,8 +28,17 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     );
   }
 
+  // Generate TOC items based on blocks
+  const tocItems = project.blocks?.map(block => ({
+    id: block.id,
+    label: block.title[language]
+  })) || [];
+
   return (
-    <div className="container mx-auto px-4 pt-16 pb-24 lg:pt-20 lg:pb-32">
+    <div className="container mx-auto px-4 pt-16 pb-24 lg:pt-20 lg:pb-32 relative">
+        {/* Integrate Table Of Contents */}
+        {tocItems.length > 0 && <TableOfContents items={tocItems} />}
+
         <div className="mb-4">
              <Link href="/projects" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white transition-all duration-300 group backdrop-blur-sm">
                  <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -46,24 +56,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight">{project.title}</h1>
         <p className="text-lg md:text-xl text-white/60 leading-relaxed">{project.description[language]}</p>
       </motion.div>
-
-      {/* Cover Image */}
-      {/* REMOVED PER REQUEST: The cover image is now only used for the card display, not on the detail page.
-      <motion.div
-         initial={{ opacity: 0, scale: 0.95 }}
-         animate={{ opacity: 1, scale: 1 }}
-         transition={{ duration: 0.8, delay: 0.1 }}
-         className="w-full mb-16 lg:mb-24"
-      >
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-               <img
-                  src={project.coverImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-          </div>
-      </motion.div>
-      */}
 
       {/* --- NEW MODULAR CONTENT --- */}
       {project.overview && (
@@ -125,7 +117,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {index > 0 && (
                 <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-12" />
             )}
-            <ContentBlockRenderer block={block} />
+            <div id={block.id}>
+                <ContentBlockRenderer block={block} />
+            </div>
           </React.Fragment>
         ))}
       </div>

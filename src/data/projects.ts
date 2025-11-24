@@ -217,15 +217,89 @@ export const projects: Project[] = [
       tr: "Lounge atmosferi unsurları ve nargile ile modern tarz."
     },
     clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Black+Island",
-    images: [
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Interior",
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Dishes",
-    ],
-    fullDescription: {
-      ru: "Black Island — это гастрономическое путешествие. Мы объединили лучшие традиции русской, европейской и восточной кухни в одном месте. Стильный интерьер, кальянная зона и разнообразное меню создают идеальную атмосферу для отдыха.",
-      en: "Black Island is a gastronomic journey. We have combined the best traditions of Russian, European, and Eastern cuisine in one place. Stylish interior, hookah zone, and a diverse menu create the perfect atmosphere for relaxation.",
-      tr: "Black Island bir gastronomi yolculuğudur. Rus, Avrupa ve Doğu mutfağının en iyi geleneklerini tek bir yerde birleştirdik. Şık iç mekan, nargile alanı ve çeşitli menü, dinlenmek için mükemmel bir atmosfer yaratır."
-    }
+    overview: {
+      client: {
+        ru: "Black Island — популярное заведение в Анталье, объединяющее русскую и европейскую кухню. Интерьер выполнен в темном премиальном стиле, создавая атмосферу уюта и эксклюзивности.",
+        en: "Black Island is a popular establishment in Antalya combining Russian and European cuisine. The interior is executed in a dark premium style, creating an atmosphere of comfort and exclusivity.",
+        tr: "Black Island, Antalya'da Rus ve Avrupa mutfağını birleştiren popüler bir mekandır. İç mekan, konfor ve ayrıcalık atmosferi yaratan karanlık bir premium tarzda yapılmıştır."
+      },
+      task: {
+        ru: "Предыдущий сайт не соответствовал уровню заведения: ни визуально, ни функционально. Необходимо было создать цифровой образ, который передает премиальность интерьера и 'вайб' места, а также удобно презентует меню.",
+        en: "The previous site did not correspond to the level of the establishment: neither visually nor functionally. It was necessary to create a digital image that conveys the premium nature of the interior and the 'vibe' of the place, as well as conveniently presents the menu.",
+        tr: "Önceki site mekanın seviyesine uymuyordu: ne görsel ne de işlevsel olarak. İç mekanın premium doğasını ve mekanın 'havasını' ileten ve menüyü rahatça sunan bir dijital görüntü oluşturmak gerekiyordu."
+      },
+      solution: {
+        ru: "Мы разработали стильный сайт с упором на визуальный контент. Темная тема, качественная типографика и плавные анимации полностью отражают атмосферу Black Island, превращая посетителей сайта в гостей ресторана.",
+        en: "We developed a stylish site with a focus on visual content. Dark theme, high-quality typography, and smooth animations fully reflect the atmosphere of Black Island, turning site visitors into restaurant guests.",
+        tr: "Görsel içeriğe odaklanan şık bir site geliştirdik. Koyu tema, yüksek kaliteli tipografi ve pürüzsüz animasyonlar Black Island'ın atmosferini tamamen yansıtıyor ve site ziyaretçilerini restoran misafirlerine dönüştürüyor."
+      }
+    },
+    blocks: [
+      {
+        id: "bi-design",
+        type: "feature",
+        title: {
+          ru: "Премиальный темный дизайн",
+          en: "Premium Dark Design",
+          tr: "Premium Karanlık Tasarım"
+        },
+        description: {
+          ru: "Дизайн сайта является прямым продолжением интерьера ресторана. Мы использовали глубокие темные оттенки и акцентные элементы, чтобы передать ощущение лаунж-зоны и вечернего отдыха.",
+          en: "The site design is a direct continuation of the restaurant's interior. We used deep dark shades and accent elements to convey the feeling of a lounge zone and evening relaxation.",
+          tr: "Site tasarımı restoranın iç mekanının doğrudan bir devamıdır. Lounge alanı ve akşam dinlenmesi hissini iletmek için derin koyu tonlar ve vurgu öğeleri kullandık."
+        },
+        image: {
+          label: "Главная страница в темном стиле",
+          dimensions: "1920x1080",
+          position: "bottom",
+          url: ""
+        }
+      },
+      {
+        id: "bi-menu",
+        type: "feature",
+        title: {
+          ru: "Цифровое меню и Галерея",
+          en: "Digital Menu & Gallery",
+          tr: "Dijital Menü ve Galeri"
+        },
+        description: {
+          ru: "Акцент сделан на вкусной презентации блюд. Удобная структура меню позволяет быстро найти любимые позиции, будь то русские пельмени или европейские стейки.",
+          en: "The emphasis is on the delicious presentation of dishes. The convenient menu structure allows you to quickly find favorite items, whether it's Russian dumplings or European steaks.",
+          tr: "Vurgu, yemeklerin lezzetli sunumu üzerinedir. Uygun menü yapısı, ister Rus mantısı ister Avrupa bifteği olsun, favori öğeleri hızlıca bulmanızı sağlar."
+        },
+        image: {
+          label: "Страница меню с фотографиями блюд",
+          dimensions: "1200x800",
+          position: "right",
+          url: ""
+        }
+      },
+      {
+        id: "bi-mobile",
+        type: "split_comparison",
+        title: {
+          ru: "Мобильная адаптация",
+          en: "Mobile Adaptation",
+          tr: "Mobil Uyarlama"
+        },
+        description: {
+          ru: "Большинство туристов ищут рестораны с телефона. Сайт идеально отображается на смартфонах, сохраняя всю красоту и функциональность десктопной версии.",
+          en: "Most tourists look for restaurants from their phones. The site is perfectly displayed on smartphones, preserving all the beauty and functionality of the desktop version.",
+          tr: "Çoğu turist telefonlarından restoran arar. Site, masaüstü sürümünün tüm güzelliğini ve işlevselliğini koruyarak akıllı telefonlarda mükemmel bir şekilde görüntülenir."
+        },
+        leftImage: {
+          label: "Десктоп версия",
+          dimensions: "1200x800",
+          url: ""
+        },
+        rightImage: {
+          label: "Мобильная версия",
+          dimensions: "375x812",
+          url: ""
+        }
+      }
+    ]
   },
   {
     id: "carre-caffe",
@@ -243,14 +317,78 @@ export const projects: Project[] = [
       tr: "Akdeniz kıyısında ev yapımı Rus mutfağının konforu ve sıcaklığı."
     },
     clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Carre+Caffe",
-    images: [
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Menu",
-        "https://placehold.co/1200x800/000000/FFFFFF?text=Atmosphere",
-    ],
-    fullDescription: {
-      ru: "Carre Caffe привносит вкус родины в сердце Манавгата. Традиционные рецепты, свежие ингредиенты и гостеприимство делают это место уникальным уголком русской культуры в Турции.",
-      en: "Carre Caffe brings the taste of home to the heart of Manavgat. Traditional recipes, fresh ingredients, and hospitality make this place a unique corner of Russian culture in Turkey.",
-      tr: "Carre Caffe, memleket tadını Manavgat'ın kalbine getiriyor. Geleneksel tarifler, taze malzemeler ve misafirperverlik, burayı Türkiye'de Rus kültürünün eşsiz bir köşesi haline getiriyor."
-    }
+    overview: {
+      client: {
+        ru: "Carre Caffe — уютный уголок русской культуры в Манавгате. Место, где туристы и экспаты могут найти привычные и любимые блюда домашней кухни.",
+        en: "Carre Caffe is a cozy corner of Russian culture in Manavgat. A place where tourists and expats can find familiar and favorite home-cooked dishes.",
+        tr: "Carre Caffe, Manavgat'ta Rus kültürünün rahat bir köşesidir. Turistlerin ve gurbetçilerin tanıdık ve sevdikleri ev yemeklerini bulabilecekleri bir yer."
+      },
+      task: {
+        ru: "У кафе отсутствовал сайт, из-за чего огромный поток туристов из Google просто проходил мимо. Задача состояла в том, чтобы создать точку контакта в интернете и привлечь новых гостей через поисковой трафик.",
+        en: "The cafe had no website, which is why a huge stream of tourists from Google simply passed by. The task was to create a contact point on the Internet and attract new guests through search traffic.",
+        tr: "Kafenin bir web sitesi yoktu, bu yüzden Google'dan gelen büyük bir turist akışı sadece geçip gidiyordu. Görev, internette bir temas noktası oluşturmak ve arama trafiği yoluyla yeni misafirler çekmekti."
+      },
+      solution: {
+        ru: "Мы разработали сайт-визитку, оптимизированную для SEO и Google Maps. Теперь туристы, ищущие 'русская еда в Манавгате', сразу находят Carre Caffe. Сайт работает как эффективный инструмент привлечения гостей 24/7.",
+        en: "We developed a business card site optimized for SEO and Google Maps. Now tourists looking for 'Russian food in Manavgat' immediately find Carre Caffe. The site works as an effective guest attraction tool 24/7.",
+        tr: "SEO ve Google Haritalar için optimize edilmiş bir kartvizit sitesi geliştirdik. Artık 'Manavgat'ta Rus yemeği' arayan turistler Carre Caffe'yi hemen buluyor. Site 7/24 etkili bir misafir çekme aracı olarak çalışıyor."
+      }
+    },
+    blocks: [
+      {
+        id: "cc-seo",
+        type: "feature",
+        title: {
+          ru: "SEO и Привлечение трафика",
+          en: "SEO & Traffic Attraction",
+          tr: "SEO ve Trafik Çekme"
+        },
+        description: {
+          ru: "Основной упор сделан на видимость в поисковиках. Структура сайта и контент разработаны так, чтобы отвечать на популярные запросы туристов. Интеграция с картами позволяет построить маршрут в один клик.",
+          en: "The main focus is on visibility in search engines. The site structure and content are designed to answer popular tourist queries. Integration with maps allows you to build a route in one click.",
+          tr: "Ana odak noktası arama motorlarındaki görünürlüktür. Site yapısı ve içeriği popüler turist sorgularına cevap verecek şekilde tasarlanmıştır. Haritalarla entegrasyon, tek bir tıklamayla rota oluşturmanıza olanak tanır."
+        },
+        image: {
+          label: "Скриншот Google поиска и карты",
+          dimensions: "1200x800",
+          position: "right",
+          url: ""
+        }
+      },
+      {
+        id: "cc-menu",
+        type: "feature",
+        title: {
+          ru: "Витрина меню",
+          en: "Menu Showcase",
+          tr: "Menü Vitrini"
+        },
+        description: {
+          ru: "Сайт выполняет роль красочной витрины. Аппетитные фотографии борща, пельменей и блинов вызывают желание посетить кафе. Простота навигации позволяет быстро ознакомиться с ценами и ассортиментом.",
+          en: "The site acts as a colorful showcase. Appetizing photos of borscht, dumplings, and pancakes make you want to visit the cafe. Simple navigation allows you to quickly get acquainted with prices and the assortment.",
+          tr: "Site renkli bir vitrin görevi görür. Borş, mantı ve krep gibi iştah açıcı fotoğraflar kafeyi ziyaret etme isteği uyandırır. Basit navigasyon, fiyatları ve çeşitliliği hızlıca tanımanızı sağlar."
+        }
+      },
+      {
+        id: "cc-info",
+        type: "feature",
+        title: {
+          ru: "Информативность и Контакты",
+          en: "Informativeness & Contacts",
+          tr: "Bilgilendirme ve Kişiler"
+        },
+        description: {
+          ru: "Вся важная информация — часы работы, адрес, телефон — находится на видном месте. Кнопки связи (WhatsApp, вызов) всегда под рукой, особенно в мобильной версии, что критически важно для туристов на ходу.",
+          en: "All important information — opening hours, address, phone — is in a prominent place. Contact buttons (WhatsApp, call) are always at hand, especially in the mobile version, which is critical for tourists on the go.",
+          tr: "Tüm önemli bilgiler — çalışma saatleri, adres, telefon — belirgin bir yerdedir. İletişim düğmeleri (WhatsApp, arama) her zaman elinizin altındadır, özellikle hareket halindeki turistler için kritik olan mobil sürümde."
+        },
+        image: {
+          label: "Блок контактов и футер",
+          dimensions: "1200x600",
+          position: "bottom",
+          url: ""
+        }
+      }
+    ]
   }
 ];

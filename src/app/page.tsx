@@ -6,6 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SpeedReliability from "@/components/SpeedReliability";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import WorkProcess from "@/components/WorkProcess";
+import TableOfContents from "@/components/TableOfContents"; // Import TableOfContents
 import { useLoading } from "@/context/LoadingContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAi } from "@/context/AiContext";
@@ -13,7 +14,7 @@ import { ChevronDown, Sparkles } from "lucide-react";
 
 export default function Home() {
   const { isLoading } = useLoading();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { openAiModal } = useAi();
 
   const handleScrollDown = () => {
@@ -26,9 +27,21 @@ export default function Home() {
     }
   };
 
+  // Define TOC items for the homepage
+  const tocItems = [
+    { id: "hero", label: t.hero.title || "Start" }, // Hero doesn't have ID by default, need to add it
+    { id: "content-start", label: t.nav.projects || "Projects" },
+    { id: "speed-reliability", label: "Reliability" }, // Hardcoded or needs localized label? Let's use generic for now or t keys
+    { id: "work-process", label: "Process" },
+    { id: "about", label: t.nav.about || "About" }
+  ];
+
   return (
-    <div className="container mx-auto px-4">
-      <div className="min-h-screen flex flex-col justify-center items-center text-center relative pb-24">
+    <div className="container mx-auto px-4 relative">
+      {/* Integrate Table Of Contents */}
+      {!isLoading && <TableOfContents items={tocItems} />}
+
+      <div id="hero" className="min-h-screen flex flex-col justify-center items-center text-center relative pb-24">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isLoading ? {} : { opacity: 1, y: 0 }}

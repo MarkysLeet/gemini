@@ -12,6 +12,10 @@ export interface Translation {
     scrollDown: string;
     aiStart: string;
   };
+  nav: {
+      projects: string;
+      about: string;
+  };
   about: {
     title: string;
     description: string;
@@ -121,6 +125,10 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       subtitle: "Создаем не просто сайты, а впечатления.",
       scrollDown: "Вниз",
       aiStart: "Оценить идею с AI",
+    },
+    nav: {
+        projects: "Проекты",
+        about: "О нас",
     },
     about: {
       title: "Дизайн, который рассказывает вашу историю.",
@@ -284,6 +292,10 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       scrollDown: "Down",
       aiStart: "Rate idea with AI",
     },
+    nav: {
+        projects: "Projects",
+        about: "About",
+    },
     about: {
       title: "Design that tells your story.",
       description: "We are a creative studio that believes in the power of thoughtful design. Our goal is to create not just beautiful websites, but digital products that solve business problems, evoke emotions, and are memorable. We pay attention to every detail so your brand speaks the same language as your audience.",
@@ -445,6 +457,10 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
       subtitle: "Sadece web siteleri değil, izlenimler yaratıyoruz.",
       scrollDown: "Aşağı",
       aiStart: "AI ile fikri değerlendir",
+    },
+    nav: {
+        projects: "Projeler",
+        about: "Hakkımızda",
     },
     about: {
       title: "Hikayenizi anlatan tasarım.",
