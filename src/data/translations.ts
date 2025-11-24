@@ -15,6 +15,8 @@ export interface Translation {
   nav: {
       projects: string;
       about: string;
+      reliability: string;
+      process: string;
   };
   about: {
     title: string;
@@ -129,6 +131,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
     nav: {
         projects: "Проекты",
         about: "О нас",
+        reliability: "Надежность",
+        process: "Процесс",
     },
     about: {
       title: "Дизайн, который рассказывает вашу историю.",
@@ -295,6 +299,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
     nav: {
         projects: "Projects",
         about: "About",
+        reliability: "Reliability",
+        process: "Process",
     },
     about: {
       title: "Design that tells your story.",
@@ -461,6 +467,8 @@ export const translations: Record<"ru" | "en" | "tr", Translation> = {
     nav: {
         projects: "Projeler",
         about: "Hakkımızda",
+        reliability: "Güvenilirlik",
+        process: "Süreç",
     },
     about: {
       title: "Hikayenizi anlatan tasarım.",

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface TocItem {
   id: string;
@@ -14,7 +14,7 @@ interface TableOfContentsProps {
 
 export default function TableOfContents({ items }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('');
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   // Handle scroll spy
   useEffect(() => {
@@ -61,25 +61,26 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
   return (
     <motion.nav
       className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-end gap-4 p-4"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1 }}
     >
       {items.map((item) => {
         const isActive = activeId === item.id;
+        const isHovered = hoveredId === item.id;
 
         return (
           <button
             key={item.id}
             onClick={() => scrollToSection(item.id)}
-            className="group flex items-center gap-3 outline-none"
+            onMouseEnter={() => setHoveredId(item.id)}
+            onMouseLeave={() => setHoveredId(null)}
+            className="group flex items-center gap-3 outline-none relative"
             aria-label={`Scroll to ${item.label}`}
           >
-            {/* Label - Only visible on hover or if active (optional, user said 'on hover') */}
-            <span className="relative overflow-hidden">
-               <motion.span
+            {/* Label - Visible on hover with backdrop blur */}
+            <div className="relative overflow-visible">
+               <motion.div
                 initial={{ opacity: 0, x: 20, display: 'none' }}
                 animate={{
                   opacity: isHovered ? 1 : 0,
@@ -87,16 +88,20 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
                   display: isHovered ? 'block' : 'none'
                 }}
                 transition={{ duration: 0.2 }}
-                className={`text-sm font-medium whitespace-nowrap ${
-                  isActive ? 'text-white' : 'text-gray-400'
-                } group-hover:text-white transition-colors text-right`}
+                className="absolute right-0 top-1/2 -translate-y-1/2 pr-8 pointer-events-none"
               >
-                {item.label}
-              </motion.span>
-            </span>
+                  <div className="bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 shadow-xl whitespace-nowrap">
+                    <span className={`text-sm font-medium ${
+                      isActive ? 'text-white' : 'text-gray-200'
+                    }`}>
+                        {item.label}
+                    </span>
+                  </div>
+              </motion.div>
+            </div>
 
             {/* Indicator Dot/Line */}
-            <div className="relative flex items-center justify-center w-6 h-6">
+            <div className="relative flex items-center justify-center w-6 h-6 z-10">
               {/* Active Glow */}
               {isActive && (
                 <motion.div

@@ -31,8 +31,8 @@ export default function Home() {
   const tocItems = [
     { id: "hero", label: t.hero.title || "Start" }, // Hero doesn't have ID by default, need to add it
     { id: "content-start", label: t.nav.projects || "Projects" },
-    { id: "speed-reliability", label: "Reliability" }, // Hardcoded or needs localized label? Let's use generic for now or t keys
-    { id: "work-process", label: "Process" },
+    { id: "speed-reliability", label: t.nav.reliability || "Reliability" },
+    { id: "work-process", label: t.nav.process || "Process" },
     { id: "about", label: t.nav.about || "About" }
   ];
 
