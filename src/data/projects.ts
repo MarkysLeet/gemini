@@ -205,97 +205,233 @@ export const projects: Project[] = [
     id: "black-island",
     title: "Black Island",
     category: "cafeRestaurants",
-    coverImage: "/images/black-island.png",
+    coverImage: "/images/black-island-cover.png",
     description: {
-      ru: "Кафе-ресторан русской, европейской и восточной кухни в современном стиле.",
-      en: "Cafe-restaurant of Russian, European, and Eastern cuisine in modern style.",
-      tr: "Modern tarzda Rus, Avrupa ve Doğu mutfağından kafe-restoran."
-    },
-    inspiration: {
-      ru: "Современный стиль с элементами лаунж-атмосферы и кальяном.",
-      en: "Modern style with lounge atmosphere elements and hookah.",
-      tr: "Lounge atmosferi unsurları ve nargile ile modern tarz."
+      ru: "Цифровая гастрономия для премиального ресторана в Анталье.",
+      en: "Digital gastronomy for a premium restaurant in Antalya.",
+      tr: "Antalya'da premium bir restoran için dijital gastronomi."
     },
     clientLogo: "https://placehold.co/150x50/FFFFFF/000000?text=Black+Island",
     overview: {
       client: {
-        ru: "Black Island — популярное заведение в Анталье, объединяющее русскую и европейскую кухню. Интерьер выполнен в темном премиальном стиле, создавая атмосферу уюта и эксклюзивности.",
-        en: "Black Island is a popular establishment in Antalya combining Russian and European cuisine. The interior is executed in a dark premium style, creating an atmosphere of comfort and exclusivity.",
-        tr: "Black Island, Antalya'da Rus ve Avrupa mutfağını birleştiren popüler bir mekandır. İç mekan, konfor ve ayrıcalık atmosferi yaratan karanlık bir premium tarzda yapılmıştır."
+        ru: "Black Island Cafe Restaurant. Ресторан русской и средиземноморской кухни в сердце Коньялты (Анталья), объединяющий гастрономическую ностальгию с современной архитектурой света и сервиса.",
+        en: "Black Island Cafe Restaurant. A restaurant of Russian and Mediterranean cuisine in the heart of Konyaaltı (Antalya), combining gastronomic nostalgia with modern architecture of light and service.",
+        tr: "Black Island Cafe Restaurant. Konyaaltı'nın (Antalya) kalbinde yer alan, gastronomik nostaljiyi modern ışık ve hizmet mimarisiyle birleştiren bir Rus ve Akdeniz mutfağı restoranı."
       },
       task: {
-        ru: "Предыдущий сайт не соответствовал уровню заведения: ни визуально, ни функционально. Необходимо было создать цифровой образ, который передает премиальность интерьера и 'вайб' места, а также удобно презентует меню.",
-        en: "The previous site did not correspond to the level of the establishment: neither visually nor functionally. It was necessary to create a digital image that conveys the premium nature of the interior and the 'vibe' of the place, as well as conveniently presents the menu.",
-        tr: "Önceki site mekanın seviyesine uymuyordu: ne görsel ne de işlevsel olarak. İç mekanın premium doğasını ve mekanın 'havasını' ileten ve menüyü rahatça sunan bir dijital görüntü oluşturmak gerekiyordu."
+        ru: "Ребрендинг в цифре: Заменить неактуальный одностраничный лендинг на многостраничный ресурс. Структурирование контента: Разработать удобную архитектуру для меню и команды. SEO и Доступность: Обеспечить видимость в поисковых системах и идеальную работу на мобильных устройствах.",
+        en: "Digital Rebranding: Replace an outdated single-page landing page with a multi-page resource. Content Structuring: Develop a user-friendly architecture for the menu and team. SEO & Accessibility: Ensure search engine visibility and flawless performance on mobile devices.",
+        tr: "Dijital Yeniden Markalaşma: Güncelliğini yitirmiş tek sayfalık bir açılış sayfasını çok sayfalı bir kaynakla değiştirin. İçerik Yapılandırma: Menü ve ekip için kullanıcı dostu bir mimari geliştirin. SEO ve Erişilebilirlik: Arama motoru görünürlüğünü ve mobil cihazlarda kusursuz performansı sağlayın."
       },
       solution: {
-        ru: "Мы разработали стильный сайт с упором на визуальный контент. Темная тема, качественная типографика и плавные анимации полностью отражают атмосферу Black Island, превращая посетителей сайта в гостей ресторана.",
-        en: "We developed a stylish site with a focus on visual content. Dark theme, high-quality typography, and smooth animations fully reflect the atmosphere of Black Island, turning site visitors into restaurant guests.",
-        tr: "Görsel içeriğe odaklanan şık bir site geliştirdik. Koyu tema, yüksek kaliteli tipografi ve pürüzsüz animasyonlar Black Island'ın atmosferini tamamen yansıtıyor ve site ziyaretçilerini restoran misafirlerine dönüştürüyor."
+        ru: "Заказчик получил имиджевый веб-сайт, работающий как полноценный канал привлечения гостей. Внедрено интерактивное меню с заказом через WhatsApp, дизайн передает камерность места, а локальное SEO превращает онлайн-трафик в реальные визиты.",
+        en: "The client received a branding website that functions as a full-fledged channel for attracting guests. An interactive menu with WhatsApp ordering was implemented, the design conveys the venue's intimacy, and local SEO converts online traffic into real visits.",
+        tr: "Müşteri, misafir çekmek için tam teşekküllü bir kanal olarak işlev gören bir marka web sitesi aldı. WhatsApp siparişli interaktif bir menü uygulandı, tasarım mekanın samimiyetini yansıtıyor ve yerel SEO çevrimiçi trafiği gerçek ziyaretlere dönüştürüyor."
       }
     },
     blocks: [
       {
-        id: "bi-design",
+        id: "bi-intro",
         type: "feature",
         title: {
-          ru: "Премиальный темный дизайн",
-          en: "Premium Dark Design",
-          tr: "Premium Karanlık Tasarım"
+          ru: "Black Island — Цифровая гастрономия в центре Коньялты",
+          en: "Black Island — Digital Gastronomy in the Heart of Konyaaltı",
+          tr: "Black Island — Konyaaltı'nın Kalbinde Dijital Gastronomi"
         },
         description: {
-          ru: "Дизайн сайта является прямым продолжением интерьера ресторана. Мы использовали глубокие темные оттенки и акцентные элементы, чтобы передать ощущение лаунж-зоны и вечернего отдыха.",
-          en: "The site design is a direct continuation of the restaurant's interior. We used deep dark shades and accent elements to convey the feeling of a lounge zone and evening relaxation.",
-          tr: "Site tasarımı restoranın iç mekanının doğrudan bir devamıdır. Lounge alanı ve akşam dinlenmesi hissini iletmek için derin koyu tonlar ve vurgu öğeleri kullandık."
+          ru: "Ребрендинг веб-присутствия для ресторана русской и средиземноморской кухни. Переход от неэффективного лендинга к многостраничному digital-пространству, которое передает атмосферу «сумеречного зала» и решает бизнес-задачи по бронированию и заказам.",
+          en: "Rebranding the web presence for a restaurant of Russian and Mediterranean cuisine. Transition from an ineffective landing page to a multi-page digital space that conveys the atmosphere of a 'twilight hall' and solves business tasks for reservations and orders.",
+          tr: "Rus ve Akdeniz mutfağı restoranı için web varlığının yeniden markalaştırılması. Etkisiz bir açılış sayfasından, 'alacakaranlık salonu' atmosferini yansıtan ve rezervasyonlar ve siparişler için iş görevlerini çözen çok sayfalı bir dijital alana geçiş."
         },
         image: {
-          label: "Главная страница в темном стиле",
-          dimensions: "1920x1080",
+          label: "Скриншот главной страницы с блюдом",
+          dimensions: "1200x600",
           position: "bottom",
           url: ""
         }
       },
       {
-        id: "bi-menu",
+        id: "bi-challenge",
         type: "feature",
         title: {
-          ru: "Цифровое меню и Галерея",
-          en: "Digital Menu & Gallery",
-          tr: "Dijital Menü ve Galeri"
+          ru: "ЗАДАЧА: Выйти за рамки «сайта-визитки»",
+          en: "CHALLENGE: To Go Beyond a 'Business Card Website'",
+          tr: "ZORLUK: 'Kartvizit Web Sitesi'nin Ötesine Geçmek"
         },
         description: {
-          ru: "Акцент сделан на вкусной презентации блюд. Удобная структура меню позволяет быстро найти любимые позиции, будь то русские пельмени или европейские стейки.",
-          en: "The emphasis is on the delicious presentation of dishes. The convenient menu structure allows you to quickly find favorite items, whether it's Russian dumplings or European steaks.",
-          tr: "Vurgu, yemeklerin lezzetli sunumu üzerinedir. Uygun menü yapısı, ister Rus mantısı ister Avrupa bifteği olsun, favori öğeleri hızlıca bulmanızı sağlar."
+          ru: "Предыдущий сайт не справлялся с презентацией обширного меню и не передавал премиальный статус заведения. Ключевые вызовы:",
+          en: "The previous site failed to present the extensive menu and did not convey the establishment's premium status. Key challenges:",
+          tr: "Önceki site, geniş menüyü sunmakta başarısız oldu ve işletmenin premium statüsünü yansıtmadı. Ana zorluklar:"
         },
+        listItems: [
+          {
+            ru: "Отсутствие SEO-структуры для поиска по запросам «русская кухня Анталия».",
+            en: "Lack of SEO structure for searches like 'Russian cuisine Antalya'.",
+            tr: "'Antalya'da Rus mutfağı' gibi aramalar için SEO yapısının olmaması."
+          },
+          {
+            ru: "Сложность выбора блюд без визуализации.",
+            en: "Difficulty in choosing dishes without visualization.",
+            tr: "Görselleştirme olmadan yemek seçmenin zorluğu."
+          },
+          {
+            ru: "Необходимость автоматизировать коммуникацию с гостями через привычные каналы (WhatsApp).",
+            en: "The need to automate communication with guests through familiar channels (WhatsApp).",
+            tr: "Misafirlerle alışıldık kanallar (WhatsApp) üzerinden iletişimi otomatikleştirme ihtiyacı."
+          }
+        ],
         image: {
-          label: "Страница меню с фотографиями блюд",
-          dimensions: "1200x800",
+          label: "Иллюстрация проблематики (старый сайт)",
+          dimensions: "1200x600",
           position: "right",
           url: ""
         }
       },
       {
-        id: "bi-mobile",
-        type: "split_comparison",
+        id: "bi-concept",
+        type: "feature",
         title: {
-          ru: "Мобильная адаптация",
-          en: "Mobile Adaptation",
-          tr: "Mobil Uyarlama"
+          ru: "Дизайн как продолжение интерьера",
+          en: "Design as an Extension of the Interior",
+          tr: "İç Mekanın Bir Uzantısı Olarak Tasarım"
         },
         description: {
-          ru: "Большинство туристов ищут рестораны с телефона. Сайт идеально отображается на смартфонах, сохраняя всю красоту и функциональность десктопной версии.",
-          en: "Most tourists look for restaurants from their phones. The site is perfectly displayed on smartphones, preserving all the beauty and functionality of the desktop version.",
-          tr: "Çoğu turist telefonlarından restoran arar. Site, masaüstü sürümünün tüm güzelliğini ve işlevselliğini koruyarak akıllı telefonlarda mükemmel bir şekilde görüntülenir."
+          ru: "Мы перенесли атмосферу ресторана в цифру. Использована темная цветовая гамма, поддерживающая концепцию «сумеречного зала и приватных столиков».",
+          en: "We transferred the restaurant's atmosphere into the digital realm. A dark color scheme was used to support the concept of a 'twilight hall and private tables'.",
+          tr: "Restoranın atmosferini dijital ortama taşıdık. 'Alacakaranlık salonu ve özel masalar' konseptini desteklemek için koyu bir renk şeması kullanıldı."
         },
-        leftImage: {
-          label: "Десктоп версия",
-          dimensions: "1200x800",
+        listItems: [
+          {
+            ru: "Visual First: Крупная, аппетитная типографика и акцент на профессиональных фото блюд (Signature Dish).",
+            en: "Visual First: Large, appetizing typography and an emphasis on professional photos of dishes (Signature Dish).",
+            tr: "Önce Görsel: Büyük, iştah açıcı tipografi ve profesyonel yemek fotoğraflarına (İmza Yemeği) vurgu."
+          },
+          {
+            ru: "Минимализм: Интерфейс не отвлекает от главного — еды. Легкая анимация и «воздух» между блоками создают ощущение премиального сервиса.",
+            en: "Minimalism: The interface does not distract from the main thing — the food. Light animation and 'air' between blocks create a sense of premium service.",
+            tr: "Minimalizm: Arayüz ana şeyden, yani yemekten dikkati dağıtmaz. Hafif animasyon ve bloklar arasındaki 'hava', premium bir hizmet hissi yaratır."
+          }
+        ],
+        image: {
+          label: "Референс на about.pdf (философия) и темную тему",
+          dimensions: "1200x600",
+          position: "left",
           url: ""
+        }
+      },
+      {
+        id: "bi-menu-architecture",
+        type: "feature",
+        title: {
+          ru: "Интерактивное меню с конверсией в заказ",
+          en: "Interactive Menu with Conversion to Order",
+          tr: "Siparişe Dönüşen Etkileşimli Menü"
         },
-        rightImage: {
-          label: "Мобильная версия",
-          dimensions: "375x812",
+        description: {
+          ru: "Разработан полноценный каталог с категориями (Закуски, Супы, Русские блюда), который работает как инструмент продаж.",
+          en: "A full-fledged catalog with categories (Appetizers, Soups, Russian dishes) was developed, which works as a sales tool.",
+          tr: "Satış aracı olarak çalışan kategorilere (Mezeler, Çorbalar, Rus yemekleri) sahip tam teşekküllü bir katalog geliştirildi."
+        },
+        listItems: [
+          {
+            ru: "Удобство выбора: Гость видит состав, цену в двух валютах (Лиры/Евро) и качественное фото.",
+            en: "Ease of choice: The guest sees the composition, price in two currencies (Lira/Euro), and a high-quality photo.",
+            tr: "Seçim kolaylığı: Misafir, içeriği, iki para birimindeki (Lira/Euro) fiyatı ve yüksek kaliteli bir fotoğrafı görür."
+          },
+          {
+            ru: "WhatsApp-Integration: Каждая карточка товара оснащена кнопкой «Заказать в WhatsApp». Это сокращает путь пользователя от «хочу» до заказа, позволяя мгновенно связаться с менеджером.",
+            en: "WhatsApp Integration: Each product card is equipped with a 'Order on WhatsApp' button. This shortens the user's path from 'I want' to ordering, allowing instant contact with the manager.",
+            tr: "WhatsApp Entegrasyonu: Her ürün kartı bir 'WhatsApp'ta Sipariş Ver' düğmesi ile donatılmıştır. Bu, kullanıcının 'istiyorum'dan siparişe giden yolunu kısaltarak yöneticiyle anında iletişim kurmasını sağlar."
+          }
+        ],
+        image: {
+          label: "Скриншот меню с карточками товаров и кнопкой WhatsApp",
+          dimensions: "1200x600",
+          position: "bottom",
+          url: ""
+        }
+      },
+      {
+        id: "bi-brand",
+        type: "feature",
+        title: {
+          ru: "Персонализация бренда: Лица Black Island",
+          en: "Brand Personalization: The Faces of Black Island",
+          tr: "Marka Kişiselleştirme: Black Island'ın Yüzleri"
+        },
+        description: {
+          ru: "В отличие от безликих сайтов общепита, мы создали раздел, знакомящий гостя с командой.",
+          en: "Unlike faceless catering sites, we created a section that introduces the guest to the team.",
+          tr: "Kimliksiz yiyecek içecek sitelerinin aksine, misafiri ekiple tanıştıran bir bölüm oluşturduk."
+        },
+        listItems: [
+          {
+            ru: "Прозрачность: Представлены ключевые фигуры — от Шеф-повара Mert Arıkan до Бар-шефа Леонида Мирского. Это формирует доверие еще до визита.",
+            en: "Transparency: Key figures are presented — from Chef Mert Arıkan to Bar Chef Leonid Mirsky. This builds trust even before the visit.",
+            tr: "Şeffaflık: Şef Mert Arıkan'dan Bar Şefi Leonid Mirsky'ye kadar kilit isimler sunulmaktadır. Bu, ziyaretten önce bile güven oluşturur."
+          },
+          {
+            ru: "Сторителлинг: Блок «История» рассказывает о философии соединения ностальгии русской кухни и легкости Средиземноморья, эмоционально привязывая гостя к месту.",
+            en: "Storytelling: The 'History' block tells about the philosophy of combining the nostalgia of Russian cuisine with the lightness of the Mediterranean, emotionally attaching the guest to the place.",
+            tr: "Hikaye Anlatımı: 'Tarihçe' bölümü, Rus mutfağının nostaljisini Akdeniz'in hafifliğiyle birleştirme felsefesini anlatarak misafiri mekana duygusal olarak bağlar."
+          }
+        ],
+        image: {
+          label: "Скриншот блока с командой из about.pdf",
+          dimensions: "1200x600",
+          position: "right",
+          url: ""
+        }
+      },
+      {
+        id: "bi-tech",
+        type: "feature",
+        title: {
+          ru: "Mobile First и Локальное SEO",
+          en: "Mobile First and Local SEO",
+          tr: "Önce Mobil ve Yerel SEO"
+        },
+        description: {
+          ru: "Сайт идеально адаптирован под мобильные устройства, с которых приходит 80% трафика в туристической зоне.",
+          en: "The site is perfectly adapted for mobile devices, which account for 80% of traffic in the tourist area.",
+          tr: "Site, turist bölgesindeki trafiğin %80'ini oluşturan mobil cihazlar için mükemmel bir şekilde uyarlanmıştır."
+        },
+        listItems: [
+          {
+            ru: "Производительность: Мгновенная загрузка тяжелого визуального контента (фото блюд) благодаря современному стеку (Vercel).",
+            en: "Performance: Instant loading of heavy visual content (photos of dishes) thanks to a modern stack (Vercel).",
+            tr: "Performans: Modern bir yığın (Vercel) sayesinde ağır görsel içeriğin (yemek fotoğrafları) anında yüklenmesi."
+          },
+          {
+            ru: "Геолокация: Интеграция с картами и четкий блок контактов (Liman Mahallesi) помогают туристам легко строить маршрут прямо с телефона.",
+            en: "Geolocation: Integration with maps and a clear contact block (Liman Mahallesi) help tourists easily plan their route directly from their phone.",
+            tr: "Coğrafi Konum: Haritalarla entegrasyon ve net bir iletişim bloğu (Liman Mahallesi), turistlerin doğrudan telefonlarından rotalarını kolayca planlamalarına yardımcı olur."
+          }
+        ],
+        image: {
+          label: "Скриншот адаптивной верстки на разных устройствах",
+          dimensions: "1200x600",
+          position: "left",
+          url: ""
+        }
+      },
+      {
+        id: "bi-solution",
+        type: "feature",
+        title: {
+          ru: "РЕШЕНИЕ: Готовый инструмент для HoReCa",
+          en: "SOLUTION: A Ready-Made Tool for HoReCa",
+          tr: "ÇÖZUM: HoReCa için Hazır Bir Araç"
+        },
+        description: {
+          ru: "Заказчик получил не просто красивую картинку, а работающий бизнес-инструмент. Сайт закрывает вопросы презентации меню, бронирования столов и формирования имиджа лучшего места с русской кухней в Коньялты.",
+          en: "The client received not just a pretty picture, but a working business tool. The site addresses issues of menu presentation, table reservations, and building an image as the best place with Russian cuisine in Konyaaltı.",
+          tr: "Müşteri sadece güzel bir resim değil, çalışan bir iş aracı aldı. Site, menü sunumu, masa rezervasyonları ve Konyaaltı'ndaki en iyi Rus mutfağına sahip yer imajını oluşturma sorunlarını çözüyor."
+        },
+        image: {
+          label: "Финальный результат (главный экран)",
+          dimensions: "1200x600",
+          position: "bottom",
           url: ""
         }
       }
