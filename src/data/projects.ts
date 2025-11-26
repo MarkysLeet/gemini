@@ -205,7 +205,7 @@ export const projects: Project[] = [
     id: "black-island",
     title: "Black Island",
     category: "cafeRestaurants",
-    coverImage: "/images/black-island-cover.png",
+    coverImage: "/images/black-island.png",
     description: {
       ru: "Цифровая гастрономия для премиального ресторана в Анталье.",
       en: "Digital gastronomy for a premium restaurant in Antalya.",
